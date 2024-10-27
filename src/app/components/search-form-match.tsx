@@ -7,35 +7,47 @@ export function SearchFormMatch() {
   const [valueTeam1, setValueTeam1] = useState('')
   const [valueTeam2, setValueTeam2] = useState('')
 
+  const championships = [{ season: '2025' }, { season: '2024' }]
+
+  const [championshipSeason, setChampionshipSeason] = useState(
+    championships[0].season || '',
+  )
+  const [status, setStatus] = useState('finalizado')
+
   const router = useRouter()
 
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    router.push(`/search?team1=${valueTeam1}&team2=${valueTeam2}&p=1`)
+    router.push(
+      `/search?team1=${valueTeam1}&team2=${valueTeam2}&championshipSeason=${championshipSeason}&status=${status}&p=1`,
+    )
   }
-
-  const championships = [{ season: '2025' }, { season: '2024' }]
 
   return (
     <form onSubmit={handleSearch} className="space-y-10 text-center">
       <div className="mb-10 flex justify-center gap-10">
         <label className="flex flex-col items-center gap-2">
-          <p>Campeonato</p>
+          <p>Temporada</p>
           <select
             defaultValue={championships[0].season || 0}
+            onChange={(e) => setChampionshipSeason(e.target.value)}
             className="w-24 rounded-lg bg-yellow-100 p-1 text-black"
           >
-            <option value="">Selecione</option>
             {championships.map((championship) => (
-              <option key={championship.season}>{championship.season}</option>
+              <option key={championship.season} value={championship.season}>
+                {championship.season}
+              </option>
             ))}
           </select>
         </label>
 
         <label className="flex flex-col items-center gap-2">
           <p>Status da partida</p>
-          <select className="w-28 rounded-lg bg-yellow-100 p-1 text-black">
+          <select
+            onChange={(e) => setStatus(e.target.value)}
+            className="w-28 rounded-lg bg-yellow-100 p-1 text-black"
+          >
             <option value="finalizado">finalizado</option>
             <option value="agendado">agendado</option>
           </select>
@@ -68,7 +80,6 @@ export function SearchFormMatch() {
           placeholder="opcional"
           onChange={(e) => setValueTeam2(e.target.value)}
           name="team2"
-          required
           className="bg-transparent text-center text-black/70 outline-none max-md:w-28 max-md:text-sm"
         />
       </div>
