@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply h-full antialiased;
+  }
+
+  body {
+    @apply bg-white h-full;
+  }
+
+  h1 {
+    @apply text-xl;
+  }
+
+  p {
+    @apply text-base md:text-lg;
+  }
+}
