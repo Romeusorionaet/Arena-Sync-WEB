@@ -2,15 +2,14 @@ import Image from 'next/image'
 import '@/assets/styles/table-statistics.css'
 import { SearchFormMatch } from '../components/search-form-match'
 import { Footer } from '../components/footer'
+import { UpcomingMatches } from '../components/upcoming-matches'
 
 export default function Home() {
   return (
     <div>
-      <main className="">
-        <section className="flex max-md:flex-col-reverse md:h-[40rem]">
-          <div className="h-96 w-full bg-[url('/img/futebol-arena.jpg')] bg-cover bg-center md:h-full md:w-2/3"></div>
-
-          <div className="h-full w-full bg-black p-4 md:w-1/3">
+      <main>
+        <section className="flex max-md:flex-col md:h-[40rem]">
+          <div className="h-full w-full bg-green-600 p-4 md:w-1/3">
             <Image
               width={500}
               height={500}
@@ -27,16 +26,27 @@ export default function Home() {
               <span className="font-semibold">A-B</span>
             </div>
 
-            <p className="mt-10 md:mt-20">
+            <p className="mx-auto mt-10 w-56 md:mt-20">
               Acompanhe cada jogada, cada gol e todos os detalhes do maior
               campeonato de futebol do Brasil.
             </p>
           </div>
+
+          <div className="flex h-full w-full overflow-hidden md:h-full md:w-2/3">
+            <Image
+              width={500}
+              height={500}
+              sizes="100vw"
+              className="md:h-full] mx-auto w-full object-cover"
+              src="/img/futebol-arena.png"
+              alt="atleta de futebol"
+            />
+          </div>
         </section>
 
-        <section className="flex items-center justify-center bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat p-4 md:h-[60rem] md:p-20">
-          <article className="mx-auto flex h-[40rem] w-full max-w-[60rem] flex-col justify-between rounded-lg bg-white/90 p-1 text-black">
-            <header className="flex justify-between rounded-t-lg bg-emerald-300 p-1">
+        <section className="flex items-center justify-center bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat p-4 max-xl:flex-col max-xl:gap-8 md:h-[60rem] md:p-20">
+          <article className="mx-auto flex h-[40rem] w-full max-w-[30rem] flex-col justify-between rounded-lg bg-white/90 p-1 text-black">
+            <header className="flex justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
               <div className="flex flex-col items-center">
                 <Image
                   width={100}
@@ -49,7 +59,7 @@ export default function Home() {
 
                 <p className="text-sm">Bragantino</p>
               </div>
-              <h2 className="uppercase">estatísticas</h2>
+              <h2>estatísticas</h2>
               <div className="flex flex-col items-center">
                 <Image
                   width={100}
@@ -113,9 +123,48 @@ export default function Home() {
               </p>
             </footer>
           </article>
+
+          <div className="scrollbar flex max-h-full flex-col gap-2 overflow-auto pr-1">
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+            <UpcomingMatches />
+          </div>
         </section>
 
-        <section className="bg-gradient-to-t from-yellow-400 to-green-700 p-4 pb-20">
+        <section className="bg-green-700 p-4 pb-20">
           <h2 className="mb-10 text-center font-bold max-md:mt-20">
             Pesquise pela sua partida favorita
           </h2>

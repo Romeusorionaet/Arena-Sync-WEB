@@ -1,0 +1,11 @@
+@tailwind utilities;
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    @apply w-2
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-white
+  }
+}

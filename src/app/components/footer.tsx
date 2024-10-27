@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export function Footer() {
   return (
-    <footer className="flex items-center justify-between bg-green-500 p-4">
+    <footer className="xl-rounded-t-lg flex items-center justify-between p-4">
       <h3>Arena Sync</h3>
 
       <Image
