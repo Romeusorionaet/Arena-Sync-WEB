@@ -97,7 +97,7 @@ export default function Home() {
             </ul>
           </div>
 
-          <footer className="flex items-center gap-4 rounded-b-lg bg-emerald-300 p-1">
+          <footer className="flex items-center justify-center gap-4 rounded-b-lg bg-emerald-300 p-1">
             <Image
               width={100}
               height={100}
@@ -111,9 +111,9 @@ export default function Home() {
         </article>
       </section>
 
-      <section className="h-96 bg-gradient-to-t from-yellow-400 to-green-700 p-4">
+      <section className="bg-gradient-to-t from-yellow-400 to-green-700 p-4 pb-20">
         <h2 className="mb-10 text-center font-bold max-md:mt-20">
-          Pesquise pela sua partida favorito
+          Pesquise pela sua partida favorita
         </h2>
 
         <SearchFormMatch />
