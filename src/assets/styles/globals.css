@@ -12,10 +12,14 @@
   }
 
   body {
-    @apply bg-white h-full;
+    @apply bg-white h-full w-full max-w-[1680px] mx-auto text-white;
   }
 
-  h1 {
+  h1, h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
     @apply text-xl;
   }
 
