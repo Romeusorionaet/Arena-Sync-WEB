@@ -4,28 +4,32 @@ import Image from 'next/image'
 export function UpcomingMatches() {
   return (
     <div className="flex gap-2">
-      <div className="flex items-center justify-between rounded-s-lg bg-white uppercase text-black">
+      <div className="flex justify-between rounded-s-lg bg-white uppercase text-black">
         <div className="flex items-center justify-center gap-2">
           <Image
             width={100}
             height={100}
             sizes="100vw"
-            className="h-10 w-10 object-cover"
+            className="h-full w-8 object-cover md:w-10"
             src="/img/brasileirao-assai.png"
             alt="wallpaper de três jogadores no campo de futebol"
           />
-          <p>RB bragantino</p>
+          <p className="border p-0.5 text-center max-md:text-xs max-md:font-light">
+            RB bragantino
+          </p>
         </div>
 
-        <X className="h-10 w-10 text-black" />
+        <X className="mt-4 h-6 w-6 text-black md:mt-2 md:h-10 md:w-10" />
 
         <div className="flex items-center justify-center gap-2">
-          <p>Atlético mineiro</p>
+          <p className="border p-0.5 text-center max-md:text-xs max-md:font-light">
+            Atlético mineiro
+          </p>
           <Image
             width={100}
             height={100}
             sizes="100vw"
-            className="h-10 w-10 object-cover"
+            className="h-full w-8 object-cover md:w-10"
             src="/img/brasileirao-assai.png"
             alt="wallpaper de três jogadores no campo de futebol"
           />

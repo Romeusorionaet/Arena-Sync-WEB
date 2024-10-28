@@ -44,7 +44,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex items-center justify-center bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat p-4 max-xl:flex-col max-xl:gap-8 md:h-[60rem] md:p-20">
+        <section className="flex h-[60rem] items-center justify-center bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat p-4 max-xl:flex-col max-xl:gap-8 md:p-20">
           <article className="mx-auto flex h-[40rem] w-full max-w-[30rem] flex-col justify-between rounded-lg bg-white/90 p-1 text-black">
             <header className="flex justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
               <div className="flex flex-col items-center">
@@ -124,42 +124,7 @@ export default function Home() {
             </footer>
           </article>
 
-          <div className="scrollbar flex max-h-full flex-col gap-2 overflow-auto pr-1">
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
-            <UpcomingMatches />
+          <div className="scrollbar flex  flex-col gap-2 overflow-auto pr-1">
             <UpcomingMatches />
           </div>
         </section>
