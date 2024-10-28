@@ -5,6 +5,8 @@ import { MatchProps } from '@/@types/arena-sync'
 import Image from 'next/image'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
+import { Pagination } from '../components/pagination'
+import Link from 'next/link'
 
 interface SearchProps {
   searchParams: {
@@ -27,14 +29,18 @@ export default async function Search({ searchParams }: SearchProps) {
     team2,
   })
 
-  console.log(props.matches, '[[')
-
   const matches: MatchProps[] = JSON.parse(props.matches ?? '[]')
 
   const searchedItemHasNotBeenFound = matches.length === 0 && team1
 
   return (
-    <div className="flex min-h-screen w-full flex-col justify-between gap-4 bg-green-800/80 pt-28">
+    <main className="flex min-h-screen w-full flex-col justify-between gap-4 bg-green-800/80 pt-28">
+      <div className="pl-10">
+        <Link href="/" className="border-b">
+          Voltar
+        </Link>
+      </div>
+
       <div>
         <div className="mt-14 flex flex-col items-center gap-4 px-4">
           <Suspense fallback={null}>
@@ -51,7 +57,7 @@ export default async function Search({ searchParams }: SearchProps) {
           )}
         </div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-6">
+        <div className="mt-10 flex flex-wrap justify-center gap-2 md:gap-6">
           {searchedItemHasNotBeenFound ? (
             <p>Não encontrado.</p>
           ) : (
@@ -59,50 +65,74 @@ export default async function Search({ searchParams }: SearchProps) {
               return (
                 <article
                   key={match.id}
-                  className="flex h-72 w-[12rem] flex-col justify-between rounded-lg bg-yellow-50/10 p-2 duration-300 hover:bg-yellow-50/20 md:w-[20rem]"
+                  className="flex w-[12rem] flex-col gap-4 rounded-lg bg-yellow-50/10 duration-300 hover:bg-yellow-50/20 md:w-[20rem]"
                 >
-                  <header className="flex justify-between">
+                  <header className="flex h-10 items-center justify-between bg-emerald-400 p-1 md:h-14">
                     <div>
-                      <p>{match.status}</p>
-                      <p>{match.estadio}</p>
+                      <p className="border-b font-medium max-md:text-xs">
+                        {match.status}
+                      </p>
+                      <p className="font-medium max-md:text-xs">
+                        {match.estadio}
+                      </p>
                     </div>
-                    {format(new Date(match.dataRealizacaoIso), 'dd/MM, HH:mm', {
-                      locale: ptBR,
-                    })}
+                    <span className="text-xs md:text-sm">
+                      {format(
+                        new Date(match.dataRealizacaoIso),
+                        'dd/MM, HH:mm',
+                        {
+                          locale: ptBR,
+                        },
+                      )}
+                    </span>
                   </header>
 
-                  <div className="flex flex-col items-center gap-4">
+                  <div className="flex flex-col items-center gap-4 p-1">
                     <div className="flex gap-4">
-                      <p>Mandante</p>
+                      <p className="font-light max-md:text-xs">Mandante</p>
                       <Image
                         width={100}
                         height={100}
                         sizes="100vw"
-                        className="h-10 w-10 object-cover"
+                        className="h-6 w-6 object-cover md:h-10 md:w-10"
                         src={match.timeMandante.escudo}
                         alt="wallpaper de três jogadores no campo de futebol"
                       />
-                      <p>{match.timeMandante.sigla} </p>
-                      <span>{match.placarMandante}</span>
+                      <p className="font-light max-md:text-xs">
+                        {match.timeMandante.sigla}
+                      </p>
+                      <span className="max-md:text-xs">
+                        {match.placarMandante}
+                      </span>
                     </div>
 
                     <div className="flex gap-4">
-                      <p>Visitante</p>
+                      <p className="font-light max-md:text-xs">Visitante</p>
                       <Image
                         width={100}
                         height={100}
                         sizes="100vw"
-                        className="h-10 w-10 object-cover"
+                        className="h-6 w-6 object-cover md:h-10 md:w-10"
                         src={match.timeVisitante.escudo}
                         alt="wallpaper de três jogadores no campo de futebol"
                       />
-                      <p>{match.timeVisitante.sigla} </p>
-                      <span>{match.placarVisitante}</span>
+                      <p className="font-light max-md:text-xs">
+                        {match.timeVisitante.sigla}
+                      </p>
+                      <span className="max-md:text-xs">
+                        {match.placarVisitante}
+                      </span>
                     </div>
                   </div>
 
-                  <footer>
-                    <p className="text-center">{match.placar}</p>
+                  <footer className="flex h-6 items-center justify-center rounded-b-lg bg-white">
+                    {match.placar ? (
+                      <p className="text-xs text-black md:text-sm">
+                        {match.placar}
+                      </p>
+                    ) : (
+                      <span className="text-black">_ _ X _ _</span>
+                    )}
                   </footer>
                 </article>
               )
@@ -112,11 +142,11 @@ export default async function Search({ searchParams }: SearchProps) {
       </div>
 
       <div className="pb-28">
-        {/* <Pagination
-          sizeList={productListToShow.length}
+        <Pagination
+          sizeList={matches.length}
           disableArrowIf={!searchedItemHasNotBeenFound}
-        /> */}
+        />
       </div>
-    </div>
+    </main>
   )
 }
