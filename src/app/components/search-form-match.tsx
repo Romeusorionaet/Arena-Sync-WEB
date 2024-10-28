@@ -7,7 +7,7 @@ export function SearchFormMatch() {
   const [valueTeam1, setValueTeam1] = useState('')
   const [valueTeam2, setValueTeam2] = useState('')
 
-  const championships = [{ season: '2025' }, { season: '2024' }]
+  const championships = [{ season: '2024' }, { season: '2025' }]
 
   const [championshipSeason, setChampionshipSeason] = useState(
     championships[0].season || '',
@@ -20,7 +20,7 @@ export function SearchFormMatch() {
     event.preventDefault()
 
     router.push(
-      `/search?team1=${valueTeam1}&team2=${valueTeam2}&championshipSeason=${championshipSeason}&status=${status}&p=1`,
+      `/search?team1=${valueTeam1}&team2=${valueTeam2}&championshipSeason=${championshipSeason}&status=${status}&page=1`,
     )
   }
 
@@ -57,8 +57,8 @@ export function SearchFormMatch() {
       <label htmlFor="teams">Pesquise pelo seu timão ou por dois times</label>
 
       <div
-        // id="teams"
-        className="mx-auto flex w-full max-w-[600px] items-center justify-between rounded-md border bg-white/50 px-5 py-2 md:py-2"
+        id="teams"
+        className="mx-auto flex w-full max-w-[600px] items-center justify-between rounded-md border bg-white/60 px-5 py-2 md:py-2"
       >
         <input
           type="text"
@@ -66,21 +66,20 @@ export function SearchFormMatch() {
           placeholder="Primeiro time"
           onChange={(e) => setValueTeam1(e.target.value)}
           name="team1"
-          required
-          className="bg-transparent text-center text-black/70 outline-none max-md:w-28 max-md:text-sm"
+          className="bg-transparent text-center text-black/80 outline-none max-md:w-28 max-md:text-sm"
         />
 
-        <div className="rounded-full bg-gradient-to-tr from-yellow-100 to-orange-500 p-1">
-          <span className="font-extrabold uppercase">vs</span>
+        <div className="rounded-full bg-yellow-100 p-1">
+          <span className="font-extrabold uppercase text-black">vs</span>
         </div>
 
         <input
           type="text"
           value={valueTeam2}
-          placeholder="opcional"
+          placeholder="Segundo time"
           onChange={(e) => setValueTeam2(e.target.value)}
           name="team2"
-          className="bg-transparent text-center text-black/70 outline-none max-md:w-28 max-md:text-sm"
+          className="bg-transparent text-center text-black/80 outline-none max-md:w-28 max-md:text-sm"
         />
       </div>
 
