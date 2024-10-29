@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import '@/assets/styles/table-statistics.css'
 import { SearchFormMatch } from '../components/search-form-match'
-import { Footer } from '../components/footer'
 import { UpcomingMatches } from '../components/upcoming-matches'
 
 export default function Home() {
@@ -131,14 +130,12 @@ export default function Home() {
 
         <section className="bg-green-700 p-4 pb-20">
           <h2 className="mb-10 text-center font-bold max-md:mt-20">
-            Pesquise pela sua partida favorita
+            Pesquise por uma partida
           </h2>
 
           <SearchFormMatch />
         </section>
       </main>
-
-      <Footer />
     </div>
   )
 }
