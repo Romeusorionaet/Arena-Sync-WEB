@@ -9,6 +9,8 @@ import Image from 'next/image'
 import { StatisticsContent } from '@/app/components/statistics-content'
 import { Shirt } from 'lucide-react'
 import { ReplacementContent } from '@/app/components/replacement-content'
+import { TeamPerformanceGraphic } from '@/app/components/team-performance-graphic'
+import { ActionMetricsGraphic } from '@/app/components/action-metrics-graphic'
 
 interface ParamsProps {
   params: {
@@ -67,49 +69,77 @@ export default async function MatchDetails({ params }: ParamsProps) {
       </section>
 
       <section className="mt-10 space-y-10 bg-white/90 p-2 text-black md:p-10">
-        <article className="mx-auto flex w-full max-w-[30rem] flex-col justify-between rounded-lg p-1 text-black">
-          <header className="flex justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
-            <div className="flex flex-col items-center">
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          <article className="mx-auto flex w-full max-w-[30rem] flex-col justify-between rounded-lg p-1 text-black">
+            <header className="flex justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
+              <div className="flex flex-col items-center">
+                <Image
+                  width={100}
+                  height={100}
+                  sizes="100vw"
+                  className="h-10 w-10 object-cover"
+                  src={match.timeMandante.escudo}
+                  alt="wallpaper de três jogadores no campo de futebol"
+                />
+
+                <p className="text-sm">{match.timeMandante.sigla}</p>
+              </div>
+              <h2 className="max-md:text-base">estatísticas</h2>
+              <div className="flex flex-col items-center">
+                <Image
+                  width={100}
+                  height={100}
+                  sizes="100vw"
+                  className="h-10 w-10 object-cover"
+                  src={match.timeVisitante.escudo}
+                  alt="wallpaper de três jogadores no campo de futebol"
+                />
+
+                <p className="text-sm">{match.timeVisitante.sigla}</p>
+              </div>
+            </header>
+
+            <StatisticsContent match={match} />
+
+            <footer className="flex items-center justify-center gap-4 rounded-b-lg bg-emerald-300 p-1">
               <Image
                 width={100}
                 height={100}
                 sizes="100vw"
                 className="h-10 w-10 object-cover"
-                src={match.timeMandante.escudo}
+                src="/img/brasileirao-assai.png"
                 alt="wallpaper de três jogadores no campo de futebol"
               />
+              <p className="text-xs">Principais estatísticas da partida</p>
+            </footer>
+          </article>
 
-              <p className="text-sm">{match.timeMandante.sigla}</p>
-            </div>
-            <h2 className="max-md:text-base">estatísticas</h2>
-            <div className="flex flex-col items-center">
-              <Image
-                width={100}
-                height={100}
-                sizes="100vw"
-                className="h-10 w-10 object-cover"
-                src={match.timeVisitante.escudo}
-                alt="wallpaper de três jogadores no campo de futebol"
+          <div className="space-y-2">
+            <div className="flex flex-wrap justify-center gap-2">
+              <TeamPerformanceGraphic
+                estatistica={match.timeMandante.estatisticaDaPartida}
+                time={match.timeMandante.nome}
               />
 
-              <p className="text-sm">{match.timeVisitante.sigla}</p>
+              <TeamPerformanceGraphic
+                estatistica={match.timeVisitante.estatisticaDaPartida}
+                time={match.timeVisitante.nome}
+              />
             </div>
-          </header>
 
-          <StatisticsContent match={match} />
+            <div className="flex flex-wrap justify-center gap-2">
+              <ActionMetricsGraphic
+                estatistica={match.timeMandante.estatisticaDaPartida}
+                time={match.timeMandante.nome}
+              />
 
-          <footer className="flex items-center justify-center gap-4 rounded-b-lg bg-emerald-300 p-1">
-            <Image
-              width={100}
-              height={100}
-              sizes="100vw"
-              className="h-10 w-10 object-cover"
-              src="/img/brasileirao-assai.png"
-              alt="wallpaper de três jogadores no campo de futebol"
-            />
-            <p className="text-xs">Principais estatísticas da partida</p>
-          </footer>
-        </article>
+              <ActionMetricsGraphic
+                estatistica={match.timeVisitante.estatisticaDaPartida}
+                time={match.timeVisitante.nome}
+              />
+            </div>
+          </div>
+        </div>
 
         <div className="flex flex-wrap gap-4">
           <article className="mx-auto flex w-full max-w-[30rem] flex-col rounded-lg p-1 text-black">
