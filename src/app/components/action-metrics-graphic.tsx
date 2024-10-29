@@ -60,7 +60,7 @@ export function ActionMetricsGraphic({ estatistica, time }: Props) {
   }
 
   return (
-    <div className="h-80 w-[25rem] rounded-lg bg-yellow-50 p-2">
+    <div className="h-80 rounded-lg bg-yellow-50 p-2 md:w-[25rem]">
       <Chart options={options} series={series} type="radar" height={350} />
     </div>
   )

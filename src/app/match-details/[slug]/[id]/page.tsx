@@ -11,6 +11,7 @@ import { Shirt } from 'lucide-react'
 import { ReplacementContent } from '@/app/components/replacement-content'
 import { TeamPerformanceGraphic } from '@/app/components/team-performance-graphic'
 import { ActionMetricsGraphic } from '@/app/components/action-metrics-graphic'
+import { CardsOfMatch } from '@/app/components/cards-of-match'
 
 interface ParamsProps {
   params: {
@@ -69,7 +70,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
       </section>
 
       <section className="mt-10 space-y-10 bg-white/90 p-2 text-black md:p-10">
-        <div className="flex flex-wrap items-center justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           <article className="mx-auto flex w-full max-w-[30rem] flex-col justify-between rounded-lg p-1 text-black">
             <header className="flex justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
               <div className="flex flex-col items-center">
@@ -114,7 +115,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
             </footer>
           </article>
 
-          <div className="space-y-2">
+          <div className="space-y-4">
             <div className="flex flex-wrap justify-center gap-2">
               <TeamPerformanceGraphic
                 estatistica={match.timeMandante.estatisticaDaPartida}
@@ -139,6 +140,17 @@ export default async function MatchDetails({ params }: ParamsProps) {
               />
             </div>
           </div>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-4">
+          <CardsOfMatch
+            shield={match.timeMandante.escudo}
+            cards={match.timeMandante.estatisticaDaPartida[0].cartao}
+          />
+          <CardsOfMatch
+            shield={match.timeVisitante.escudo}
+            cards={match.timeVisitante.estatisticaDaPartida[0].cartao}
+          />
         </div>
 
         <div className="flex flex-wrap gap-4">
