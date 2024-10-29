@@ -18,7 +18,7 @@ export interface MatchProps {
 
 // Match details props
 
-type escalacao = [
+type LineupProps = [
   {
     tecnico: string
     esquemaTatico: string
@@ -39,7 +39,7 @@ type escalacao = [
   },
 ]
 
-type estatistica = [
+export type StatisticsProps = [
   {
     defesas: number
     desarmes: number
@@ -177,14 +177,14 @@ export interface MatchDetailsProps {
     nome: string
     sigla: string
     escudo: string
-    estatisticaDaPartida: estatistica
-    Escalacao: escalacao
+    estatisticaDaPartida: StatisticsProps
+    Escalacao: LineupProps
   }
   timeVisitante: {
     nome: string
     sigla: string
     escudo: string
-    estatisticaDaPartida: estatistica
-    Escalacao: escalacao
+    estatisticaDaPartida: StatisticsProps
+    Escalacao: LineupProps
   }
 }
