@@ -1,11 +1,11 @@
 @tailwind utilities;
 
 @layer utilities {
-    #table-statistics li {
+    .table-statistics li {
         @apply flex justify-between border-b border-black/20 uppercase font-extralight
     }
 
-    #table-statistics li span {
+    .table-statistics li span {
         @apply font-semibold
     }
 }
