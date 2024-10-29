@@ -75,7 +75,7 @@ export default function Home() {
             </header>
 
             <div>
-              <ul id="table-statistics" className="space-y-4 p-2">
+              <ul className="table-statistics space-y-4 p-2">
                 <li>
                   <span>7</span>chutes<span>9</span>
                 </li>
