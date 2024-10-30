@@ -129,9 +129,7 @@ export default function Home() {
             </footer>
           </article>
 
-          <div className="scrollbar flex  flex-col gap-2 overflow-auto pr-1">
-            <UpcomingMatches />
-          </div>
+          <UpcomingMatches />
         </section>
 
         <section id="searchArea" className="bg-green-700 p-4 pb-20">
