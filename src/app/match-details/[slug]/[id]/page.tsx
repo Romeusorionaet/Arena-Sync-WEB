@@ -68,24 +68,42 @@ export default async function MatchDetails({ params }: ParamsProps) {
 
   return (
     <main className="flex min-h-screen w-full flex-col gap-4 bg-green-800/80 pt-28">
-      <section>
-        <p className="mb-4 text-center font-bold">{match.status}</p>
-        <h2 className="text-center max-md:text-base max-md:font-light">
-          {match.placar}
-        </h2>
+      <section className="flex items-end justify-between px-2 md:items-center md:justify-evenly">
+        <Image
+          width={100}
+          height={100}
+          sizes="100vw"
+          className="h-full w-10 object-cover md:w-28 lg:w-40"
+          src={match.timeMandante.escudo}
+          alt={`banderia do time ${match.timeMandante.nome}`}
+        />
+        <div>
+          <p className="mb-4 text-center font-bold">{match.status}</p>
+          <h2 className="text-center max-md:text-base max-md:font-light">
+            {match.placar}
+          </h2>
 
-        <p className="text-center max-md:text-base max-md:font-light">
-          Realizado em{' '}
-          <span className="font-normal">
-            {format(new Date(match.dataRealizacaoIso), 'dd/MM, HH:mm', {
-              locale: ptBR,
-            })}
-          </span>
-        </p>
+          <p className="text-center max-md:text-base max-md:font-light">
+            Realizado em{' '}
+            <span className="font-normal">
+              {format(new Date(match.dataRealizacaoIso), 'dd/MM, HH:mm', {
+                locale: ptBR,
+              })}
+            </span>
+          </p>
 
-        <p className="text-center max-md:text-base max-md:font-light">
-          Estádio: {match.estadio}
-        </p>
+          <p className="text-center max-md:text-base max-md:font-light">
+            Estádio: {match.estadio}
+          </p>
+        </div>
+        <Image
+          width={100}
+          height={100}
+          sizes="100vw"
+          className="h-full w-10 object-cover md:w-28 lg:w-40"
+          src={match.timeVisitante.escudo}
+          alt={`banderia do time ${match.timeVisitante.nome}`}
+        />
       </section>
 
       <section className="mt-10 space-y-10 bg-white/90 p-2 text-black md:p-10">
