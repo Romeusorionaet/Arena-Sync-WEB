@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cdn.api-futebol.com.br',
       },
+      {
+        protocol: 'https',
+        hostname: 'brandlogos.net',
+      },
     ],
   },
 }
