@@ -107,7 +107,7 @@ export default async function Search({ searchParams }: SearchProps) {
                         sizes="100vw"
                         className="h-6 w-6 object-cover md:h-10 md:w-10"
                         src={match.timeMandante.escudo}
-                        alt="wallpaper de três jogadores no campo de futebol"
+                        alt={`logo do time ${match.timeMandante.sigla}`}
                       />
                       <p className="font-light max-md:text-xs">
                         {match.timeMandante.sigla}
@@ -125,7 +125,7 @@ export default async function Search({ searchParams }: SearchProps) {
                         sizes="100vw"
                         className="h-6 w-6 object-cover md:h-10 md:w-10"
                         src={match.timeVisitante.escudo}
-                        alt="wallpaper de três jogadores no campo de futebol"
+                        alt={`logo do time ${match.timeVisitante.sigla}`}
                       />
                       <p className="font-light max-md:text-xs">
                         {match.timeVisitante.sigla}

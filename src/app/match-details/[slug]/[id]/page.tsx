@@ -54,7 +54,7 @@ export async function generateMetadata({
           url: 'https://brandlogos.net/wp-content/uploads/2023/08/brasileiro_serie_a-logo_brandlogos.net_nnva7-768x943.png',
           width: 1000,
           height: 1000,
-          alt: 'My custom alt',
+          alt: 'Logo do campeonato brasileirão',
         },
       ],
     },
@@ -134,7 +134,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                     sizes="100vw"
                     className="h-10 w-10 object-cover"
                     src={match.timeMandante.escudo}
-                    alt="wallpaper de três jogadores no campo de futebol"
+                    alt={`logo do time ${match.timeMandante.nome}`}
                   />
 
                   <p className="text-sm">{match.timeMandante.sigla}</p>
@@ -147,7 +147,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                     sizes="100vw"
                     className="h-10 w-10 object-cover"
                     src={match.timeVisitante.escudo}
-                    alt="wallpaper de três jogadores no campo de futebol"
+                    alt={`logo do time ${match.timeVisitante.nome}`}
                   />
 
                   <p className="text-sm">{match.timeVisitante.sigla}</p>
@@ -162,7 +162,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                   sizes="100vw"
                   className="h-10 w-10 object-cover"
                   src="/img/brasileirao-assai.png"
-                  alt="wallpaper de três jogadores no campo de futebol"
+                  alt="logo do campeonato brasileirão"
                 />
                 <p className="text-xs">Principais estatísticas da partida</p>
               </footer>
@@ -174,7 +174,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
               sizes="100vw"
               className="mx-auto h-44 w-96 object-contain md:hidden"
               src="/img/rasura-design.png"
-              alt="atleta de futebol"
+              alt=""
             />
 
             <div className="space-y-4">
@@ -243,7 +243,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                   sizes="100vw"
                   className="h-10 w-10 object-cover"
                   src={match.timeMandante.escudo}
-                  alt="wallpaper de três jogadores no campo de futebol"
+                  alt={`logo do time ${match.timeMandante.nome}`}
                 />
 
                 <p className="text-sm">{match.timeMandante.nome}</p>
@@ -329,7 +329,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                   sizes="100vw"
                   className="h-10 w-10 object-cover"
                   src={match.timeVisitante.escudo}
-                  alt="wallpaper de três jogadores no campo de futebol"
+                  alt={`logo do time ${match.timeVisitante.nome}`}
                 />
 
                 <p className="text-sm">{match.timeVisitante.nome}</p>
@@ -410,7 +410,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                   sizes="100vw"
                   className="h-10 w-10 object-cover"
                   src={match.timeMandante.escudo}
-                  alt="wallpaper de três jogadores no campo de futebol"
+                  alt={`logo do time ${match.timeMandante.nome}`}
                 />
 
                 <p className="text-sm">{match.timeMandante.nome}</p>
@@ -437,7 +437,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                   sizes="100vw"
                   className="h-10 w-10 object-cover"
                   src={match.timeVisitante.escudo}
-                  alt="wallpaper de três jogadores no campo de futebol"
+                  alt={`logo do time ${match.timeVisitante.nome}`}
                 />
 
                 <p className="text-sm">{match.timeVisitante.nome}</p>
