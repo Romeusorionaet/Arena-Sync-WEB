@@ -41,7 +41,7 @@ export function CardsOfMatch({ cards, shield }: Props) {
             sizes="100vw"
             className="h-10 w-10 object-cover"
             src={shield}
-            alt="wallpaper de três jogadores no campo de futebol"
+            alt=""
           />
           <div className="flex items-center gap-2">
             <p className="uppercase">cartão</p>
@@ -105,7 +105,7 @@ export function CardsOfMatch({ cards, shield }: Props) {
             sizes="100vw"
             className="h-10 w-10 object-cover"
             src={shield}
-            alt="wallpaper de três jogadores no campo de futebol"
+            alt=""
           />
           <div className="flex items-center gap-2">
             <p className="uppercase">cartão</p>

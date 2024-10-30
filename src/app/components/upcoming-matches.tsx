@@ -42,7 +42,7 @@ export function UpcomingMatches() {
                   sizes="100vw"
                   className="h-full w-8 object-cover md:w-10"
                   src={match.timeMandante.escudo}
-                  alt="wallpaper de três jogadores no campo de futebol"
+                  alt={`logo do time ${match.timeMandante.nome}`}
                 />
                 <p className="border p-0.5 text-center max-md:text-xs max-md:font-light">
                   {match.timeMandante.nome}
@@ -61,7 +61,7 @@ export function UpcomingMatches() {
                   sizes="100vw"
                   className="h-full w-8 object-cover md:w-10"
                   src={match.timeVisitante.escudo}
-                  alt="wallpaper de três jogadores no campo de futebol"
+                  alt={`logo do time ${match.timeVisitante.nome}`}
                 />
               </div>
             </div>

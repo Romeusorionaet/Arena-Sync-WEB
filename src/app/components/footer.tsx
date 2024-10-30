@@ -14,7 +14,7 @@ export function Footer() {
         sizes="100vw"
         className="h-20 w-20 object-cover"
         src="/img/bola.png"
-        alt="wallpaper de três jogadores no campo de futebol"
+        alt="uma bola de futebol preta e branca"
       />
 
       <p className="font-extralight">© Copyright 2024</p>

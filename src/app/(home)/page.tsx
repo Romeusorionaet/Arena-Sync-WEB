@@ -19,7 +19,7 @@ export default function Home() {
               sizes="100vw"
               className="mx-auto max-h-[300px] max-w-[200px] object-cover"
               src="/img/brasileirao-assai.png"
-              alt="wallpaper de três jogadores no campo de futebol"
+              alt="logo do campeonato brasileirão de futebol"
             />
 
             <div className="text-center">
@@ -50,7 +50,7 @@ export default function Home() {
               sizes="100vw"
               className="mx-auto w-full object-cover md:h-full"
               src="/img/futebol-arena.png"
-              alt="atleta de futebol"
+              alt=""
             />
           </div>
         </section>
@@ -59,81 +59,7 @@ export default function Home() {
           id="schedulingMatches"
           className="flex h-[60rem] items-center justify-center bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat p-4 max-xl:flex-col max-xl:gap-8 md:p-20"
         >
-          <article className="mx-auto flex h-[40rem] w-full max-w-[30rem] flex-col justify-between rounded-lg bg-white/90 p-1 text-black">
-            <header className="flex justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
-              <div className="flex flex-col items-center">
-                <Image
-                  width={100}
-                  height={100}
-                  sizes="100vw"
-                  className="h-10 w-10 object-cover"
-                  src="https://cdn.api-futebol.com.br/escudos/638d3492a6e0b.svg"
-                  alt="wallpaper de três jogadores no campo de futebol"
-                />
-
-                <p className="text-sm">Fluminense</p>
-              </div>
-              <h2>estatísticas</h2>
-              <div className="flex flex-col items-center">
-                <Image
-                  width={100}
-                  height={100}
-                  sizes="100vw"
-                  className="h-10 w-10 object-cover"
-                  src="https://cdn.api-futebol.com.br/escudos/638d34e1b8948.svg"
-                  alt="wallpaper de três jogadores no campo de futebol"
-                />
-
-                <p className="text-sm">Athletico-PR</p>
-              </div>
-            </header>
-
-            <div>
-              <ul className="table-statistics space-y-4 p-2">
-                <li>
-                  <span>1</span>Defesas<span>6</span>
-                </li>
-                <li>
-                  <span>1</span>Gols<span>0</span>
-                </li>
-                <li>
-                  <span>4</span>impedimentos<span>4</span>
-                </li>
-                <li>
-                  <span>9</span>faltas<span>15</span>
-                </li>
-                <li>
-                  <span>72%</span>posse de bola<span>28%</span>
-                </li>
-                <li>
-                  <span>5</span>Escanteios<span>3</span>
-                </li>
-                <li>
-                  <span>15</span>desarmes<span>15</span>
-                </li>
-                <li>
-                  <span>1</span>cartões amarelos<span>3</span>
-                </li>
-                <li>
-                  <span>0</span>cartões vermelhos<span>0</span>
-                </li>
-              </ul>
-
-              <h2 className="text-center">E muito mais!</h2>
-            </div>
-
-            <footer className="flex items-center justify-center gap-4 rounded-b-lg bg-emerald-300 p-1">
-              <Image
-                width={100}
-                height={100}
-                sizes="100vw"
-                className="h-10 w-10 object-cover"
-                src="/img/brasileirao-assai.png"
-                alt="wallpaper de três jogadores no campo de futebol"
-              />
-              <p className="text-xs">Principais estatísticas da partida</p>
-            </footer>
-          </article>
+          {/* Widget-classificação */}
 
           <UpcomingMatches />
         </section>
