@@ -1,16 +1,29 @@
 'use client'
 
+import { getChampionships } from '@/actions/get-championships'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { ChampionshipsSeasonProps } from '@/@types/arena-sync'
 
 export function SearchFormMatch() {
   const [valueTeam1, setValueTeam1] = useState('')
   const [valueTeam2, setValueTeam2] = useState('')
 
-  const championships = [{ season: '2024' }, { season: '2025' }]
+  const { data } = useQuery({
+    queryKey: ['championshipsSeason'],
+    queryFn: () => getChampionships(),
+    staleTime: 1000 * 60 * 60 * 24, // 1 day
+  })
+
+  const championships: ChampionshipsSeasonProps[] = JSON.parse(
+    data?.props?.championships || '[]',
+  )
+
+  const thisYear = new Date().getFullYear()
 
   const [championshipSeason, setChampionshipSeason] = useState(
-    championships[0].season || '',
+    thisYear.toString(),
   )
   const [status, setStatus] = useState('finalizado')
 
@@ -30,13 +43,16 @@ export function SearchFormMatch() {
         <label className="flex flex-col items-center gap-2">
           <p>Temporada</p>
           <select
-            defaultValue={championships[0].season || 0}
+            defaultValue={championships[0]?.temporada || 0}
             onChange={(e) => setChampionshipSeason(e.target.value)}
             className="w-24 rounded-lg bg-yellow-100 p-1 text-black"
           >
             {championships.map((championship) => (
-              <option key={championship.season} value={championship.season}>
-                {championship.season}
+              <option
+                key={championship.temporada}
+                value={championship.temporada}
+              >
+                {championship.temporada}
               </option>
             ))}
           </select>
