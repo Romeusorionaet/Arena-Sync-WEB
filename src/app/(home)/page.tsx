@@ -11,7 +11,7 @@ export default function Home() {
 
       <main className="max-md:pt-12">
         <section id="topPage" className="flex max-md:flex-col md:h-[40rem]">
-          <div className="h-full w-full bg-green-600 p-4 md:w-1/3">
+          <div className="h-full w-full bg-gradient-to-b from-green-600 to-yellow-500 p-4 md:w-1/3">
             <Image
               width={500}
               height={500}
@@ -28,13 +28,19 @@ export default function Home() {
               <span className="font-semibold">A-B</span>
             </div>
 
-            <p className="mx-auto mt-10 w-56 md:mt-20">
+            <p className="mx-auto mt-10 md:mt-20">
               Acompanhe cada jogada, cada gol e todos os detalhes do maior
               campeonato de futebol do Brasil.
             </p>
           </div>
 
-          <div className="flex h-full w-full overflow-hidden md:h-full md:w-2/3">
+          <div className="relative flex h-full w-full overflow-hidden md:h-full md:w-2/3">
+            <p className="absolute right-5 top-5 text-2xl font-extrabold text-yellow-300 md:right-10 md:top-10">
+              Arena{' '}
+              <span className="rounded-md bg-white p-0.5 text-green-500">
+                Sync
+              </span>
+            </p>
             <Image
               width={500}
               height={500}

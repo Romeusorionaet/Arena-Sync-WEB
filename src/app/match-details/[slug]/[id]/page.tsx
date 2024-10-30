@@ -73,7 +73,8 @@ export default async function MatchDetails({ params }: ParamsProps) {
         <TurnBack />
 
         <p className="text-2xl font-extrabold text-yellow-300">
-          Arena <span className="text-green-500">Sync</span>
+          Arena{' '}
+          <span className="rounded-md bg-white p-0.5 text-green-500">Sync</span>
         </p>
       </div>
 
