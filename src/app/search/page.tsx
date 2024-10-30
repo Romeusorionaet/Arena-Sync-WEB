@@ -36,33 +36,37 @@ export default async function Search({ searchParams }: SearchProps) {
 
   return (
     <div className="relative bg-green-800/80 pt-28">
-      <p className="absolute right-5 top-5 text-2xl font-extrabold text-yellow-300 md:right-10 md:top-10">
-        Arena{' '}
-        <span className="rounded-md bg-white p-0.5 text-green-500">Sync</span>
-      </p>
+      <header>
+        <p className="absolute right-5 top-5 text-2xl font-extrabold text-yellow-300 md:right-10 md:top-10">
+          Arena{' '}
+          <span className="rounded-md bg-white p-0.5 text-green-500">Sync</span>
+        </p>
 
-      <div className="pl-10">
-        <Link href="/" className="border-b">
-          Voltar para Home
-        </Link>
-      </div>
+        <div className="pl-10">
+          <Link href="/" className="border-b">
+            Voltar para Home
+          </Link>
+        </div>
 
-      <div className="mt-14 flex flex-col items-center gap-4 px-4">
-        <Suspense fallback={null}>
-          <SearchFormMatch />
-        </Suspense>
+        <div className="my-14 flex flex-col items-center gap-4 px-4">
+          <Suspense fallback={null}>
+            <SearchFormMatch />
+          </Suspense>
 
-        {team1 && (
-          <p>
-            Resultado para:{' '}
-            <span className="font-semibold">
-              {team1}, {team2}
-            </span>
-          </p>
-        )}
-      </div>
+          {team1 && (
+            <p>
+              Resultado para:{' '}
+              <span className="font-semibold">
+                {team1}, {team2}
+              </span>
+            </p>
+          )}
+        </div>
+      </header>
 
-      <main className="flex min-h-screen w-full flex-col justify-between gap-4">
+      <div className="h-8 w-full bg-gradient-to-b from-green-800/80 to-black/50" />
+
+      <main className="flex min-h-screen w-full flex-col justify-between gap-4 bg-black/50">
         <div className="mt-10 flex flex-wrap justify-center gap-2 md:gap-6">
           {searchedItemHasNotBeenFound ? (
             <p>Não encontrado.</p>

@@ -69,56 +69,62 @@ export default async function MatchDetails({ params }: ParamsProps) {
 
   return (
     <div className="bg-green-800/80">
-      <div className="flex justify-between px-4 pt-6">
-        <TurnBack />
+      <header>
+        <div className="flex justify-between px-4 pt-6">
+          <TurnBack />
 
-        <p className="text-2xl font-extrabold text-yellow-300">
-          Arena{' '}
-          <span className="rounded-md bg-white p-0.5 text-green-500">Sync</span>
-        </p>
-      </div>
-
-      <section className="flex items-end justify-between px-2 pt-28 md:items-center md:justify-evenly">
-        <Image
-          width={100}
-          height={100}
-          sizes="100vw"
-          className="h-full w-10 object-cover md:w-28 lg:w-40"
-          src={match.timeMandante.escudo}
-          alt={`banderia do time ${match.timeMandante.nome}`}
-        />
-        <div>
-          <p className="mb-4 text-center font-bold">{match.status}</p>
-          <h2 className="text-center max-md:text-base max-md:font-light">
-            {match.placar}
-          </h2>
-
-          <p className="text-center max-md:text-base max-md:font-light">
-            Realizado em{' '}
-            <span className="font-normal">
-              {format(new Date(match.dataRealizacaoIso), 'dd/MM, HH:mm', {
-                locale: ptBR,
-              })}
+          <p className="text-2xl font-extrabold text-yellow-300">
+            Arena{' '}
+            <span className="rounded-md bg-white p-0.5 text-green-500">
+              Sync
             </span>
           </p>
-
-          <p className="text-center max-md:text-base max-md:font-light">
-            Estádio: {match.estadio}
-          </p>
         </div>
-        <Image
-          width={100}
-          height={100}
-          sizes="100vw"
-          className="h-full w-10 object-cover md:w-28 lg:w-40"
-          src={match.timeVisitante.escudo}
-          alt={`banderia do time ${match.timeVisitante.nome}`}
-        />
-      </section>
+
+        <section className="flex items-end justify-between px-2 pt-28 md:items-center md:justify-evenly">
+          <Image
+            width={100}
+            height={100}
+            sizes="100vw"
+            className="h-full w-10 object-cover md:w-28 lg:w-40"
+            src={match.timeMandante.escudo}
+            alt={`banderia do time ${match.timeMandante.nome}`}
+          />
+          <div>
+            <p className="mb-4 text-center font-bold">{match.status}</p>
+            <h2 className="text-center max-md:text-base max-md:font-light">
+              {match.placar}
+            </h2>
+
+            <p className="text-center max-md:text-base max-md:font-light">
+              Realizado em{' '}
+              <span className="font-normal">
+                {format(new Date(match.dataRealizacaoIso), 'dd/MM, HH:mm', {
+                  locale: ptBR,
+                })}
+              </span>
+            </p>
+
+            <p className="text-center max-md:text-base max-md:font-light">
+              Estádio: {match.estadio}
+            </p>
+          </div>
+          <Image
+            width={100}
+            height={100}
+            sizes="100vw"
+            className="h-full w-10 object-cover md:w-28 lg:w-40"
+            src={match.timeVisitante.escudo}
+            alt={`banderia do time ${match.timeVisitante.nome}`}
+          />
+        </section>
+      </header>
 
       <main className="flex min-h-screen w-full flex-col gap-4">
-        <section className="mt-10 space-y-10 bg-white/90 p-2 text-black md:p-10">
-          <div className="flex flex-wrap justify-center gap-6">
+        <section className="mt-10 space-y-10 bg-white/90 text-black">
+          <div className="h-8 w-full bg-gradient-to-b from-green-800/80 to-green-50/90" />
+
+          <div className="flex flex-wrap justify-center gap-6 p-2">
             <article className="mx-auto flex w-full max-w-[30rem] flex-col justify-between rounded-lg p-1 text-black">
               <header className="flex justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
                 <div className="flex flex-col items-center">
@@ -162,6 +168,15 @@ export default async function MatchDetails({ params }: ParamsProps) {
               </footer>
             </article>
 
+            <Image
+              width={500}
+              height={500}
+              sizes="100vw"
+              className="mx-auto h-44 w-96 object-contain md:hidden"
+              src="/img/rasura-design.png"
+              alt="atleta de futebol"
+            />
+
             <div className="space-y-4">
               <div className="flex flex-wrap justify-center gap-2">
                 <TeamPerformanceGraphic
@@ -188,9 +203,13 @@ export default async function MatchDetails({ params }: ParamsProps) {
               </div>
             </div>
           </div>
+
+          <div className="h-8 w-full bg-gradient-to-b from-green-50/90 to-green-800/80" />
         </section>
 
-        <section className="mt-10 flex flex-wrap justify-center gap-4 bg-white/90 p-2 text-black md:p-10">
+        <section className="mt-10 flex flex-wrap justify-center gap-4 bg-white/90 text-black">
+          <div className="h-8 w-full bg-gradient-to-b from-green-800/80 to-green-50/90" />
+
           <CardsOfMatch
             shield={match.timeMandante.escudo}
             cards={match.timeMandante.estatisticaDaPartida[0].cartao}
@@ -199,6 +218,8 @@ export default async function MatchDetails({ params }: ParamsProps) {
             shield={match.timeVisitante.escudo}
             cards={match.timeVisitante.estatisticaDaPartida[0].cartao}
           />
+
+          <div className="h-8 w-full bg-gradient-to-b from-green-50/90 to-green-800/80" />
         </section>
 
         <section className="mt-10 flex flex-wrap justify-center gap-4 p-2 text-black md:p-10">
@@ -375,7 +396,9 @@ export default async function MatchDetails({ params }: ParamsProps) {
           </article>
         </section>
 
-        <section className="mt-10 flex flex-wrap justify-center gap-4 bg-white/90 p-2 text-black md:p-10">
+        <section className="flex flex-wrap justify-center gap-4 bg-white/90 text-black">
+          <div className="h-8 w-full bg-gradient-to-b from-green-800/80 to-green-50/90" />
+
           <article className="mx-auto flex w-full max-w-[30rem] flex-col rounded-lg p-1 text-black">
             <header className="flex items-center justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
               <h2 className="max-md:text-base">Substituição</h2>
@@ -429,6 +452,8 @@ export default async function MatchDetails({ params }: ParamsProps) {
 
             <footer className="h-6 rounded-b-lg bg-emerald-300" />
           </article>
+
+          <div className="h-8 w-full bg-gradient-to-b from-green-50/90 to-green-800/80" />
         </section>
       </main>
     </div>
