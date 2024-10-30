@@ -9,7 +9,7 @@ interface Props {
   time: string
 }
 
-export function ActionMetricsGraphic({ estatistica, time }: Props) {
+export default function ActionMetricsGraphic({ estatistica, time }: Props) {
   const data = [
     { name: 'Faltas', value: (estatistica[0].faltas || 0) * 5 },
     { name: 'Defesas', value: (estatistica[0].defesas || 0) * 5 },

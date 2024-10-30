@@ -9,9 +9,28 @@ import Image from 'next/image'
 import { StatisticsContent } from '@/app/components/statistics-content'
 import { Shirt } from 'lucide-react'
 import { ReplacementContent } from '@/app/components/replacement-content'
-import { TeamPerformanceGraphic } from '@/app/components/team-performance-graphic'
-import { ActionMetricsGraphic } from '@/app/components/action-metrics-graphic'
 import { CardsOfMatch } from '@/app/components/cards-of-match'
+import dynamic from 'next/dynamic'
+
+const TeamPerformanceGraphic = dynamic(
+  () =>
+    import('@/app/components/team-performance-graphic').then(
+      (mod) => mod.default,
+    ),
+  {
+    ssr: false,
+  },
+)
+
+const ActionMetricsGraphic = dynamic(
+  () =>
+    import('@/app/components/action-metrics-graphic').then(
+      (mod) => mod.default,
+    ),
+  {
+    ssr: false,
+  },
+)
 
 interface ParamsProps {
   params: {
@@ -101,7 +120,6 @@ export default async function MatchDetails({ params }: ParamsProps) {
             </header>
 
             <StatisticsContent match={match} />
-
             <footer className="flex items-center justify-center gap-4 rounded-b-lg bg-emerald-300 p-1">
               <Image
                 width={100}
