@@ -8,7 +8,7 @@ interface Props {
   time: string
 }
 
-export function TeamPerformanceGraphic({ estatistica, time }: Props) {
+export default function TeamPerformanceGraphic({ estatistica, time }: Props) {
   const data = [
     {
       name: 'Posse de Bola',
