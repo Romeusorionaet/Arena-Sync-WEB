@@ -3,7 +3,10 @@ import Image from 'next/image'
 export function Footer() {
   return (
     <footer className="xl-rounded-t-lg flex items-center justify-between p-4">
-      <h3>Arena Sync</h3>
+      <p className="text-2xl font-extrabold text-yellow-300">
+        Arena{' '}
+        <span className="rounded-md bg-white p-0.5 text-green-500">Sync</span>
+      </p>
 
       <Image
         width={100}

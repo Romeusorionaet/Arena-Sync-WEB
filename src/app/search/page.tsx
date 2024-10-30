@@ -37,7 +37,8 @@ export default async function Search({ searchParams }: SearchProps) {
   return (
     <div className="relative bg-green-800/80 pt-28">
       <p className="absolute right-5 top-5 text-2xl font-extrabold text-yellow-300 md:right-10 md:top-10">
-        Arena <span className="text-green-500">Sync</span>
+        Arena{' '}
+        <span className="rounded-md bg-white p-0.5 text-green-500">Sync</span>
       </p>
 
       <div className="pl-10">
