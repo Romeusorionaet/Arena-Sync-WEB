@@ -2,6 +2,18 @@ export interface ChampionshipsSeasonProps {
   temporada: string
 }
 
+export interface NearestMatchesProps {
+  dataRealizacaoIso: string
+  timeMandante: {
+    escudo: string
+    nome: string
+  }
+  timeVisitante: {
+    escudo: string
+    nome: string
+  }
+}
+
 export interface MatchProps {
   id: string
   dataRealizacaoIso: string
