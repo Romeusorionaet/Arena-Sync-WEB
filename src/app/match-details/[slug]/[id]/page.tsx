@@ -11,6 +11,7 @@ import { Shirt } from 'lucide-react'
 import { ReplacementContent } from '@/app/components/replacement-content'
 import { CardsOfMatch } from '@/app/components/cards-of-match'
 import dynamic from 'next/dynamic'
+import { TurnBack } from '../../components/turn-back'
 
 const TeamPerformanceGraphic = dynamic(
   () =>
@@ -67,8 +68,16 @@ export default async function MatchDetails({ params }: ParamsProps) {
   const match: MatchDetailsProps = JSON.parse(props.match ?? '')
 
   return (
-    <main className="flex min-h-screen w-full flex-col gap-4 bg-green-800/80 pt-28">
-      <section className="flex items-end justify-between px-2 md:items-center md:justify-evenly">
+    <div className="bg-green-800/80">
+      <div className="flex justify-between px-4 pt-6">
+        <TurnBack />
+
+        <p className="text-2xl font-extrabold text-yellow-300">
+          Arena <span className="text-green-500">Sync</span>
+        </p>
+      </div>
+
+      <section className="flex items-end justify-between px-2 pt-28 md:items-center md:justify-evenly">
         <Image
           width={100}
           height={100}
@@ -106,10 +115,105 @@ export default async function MatchDetails({ params }: ParamsProps) {
         />
       </section>
 
-      <section className="mt-10 space-y-10 bg-white/90 p-2 text-black md:p-10">
-        <div className="flex flex-wrap justify-center gap-6">
-          <article className="mx-auto flex w-full max-w-[30rem] flex-col justify-between rounded-lg p-1 text-black">
-            <header className="flex justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
+      <main className="flex min-h-screen w-full flex-col gap-4">
+        <section className="mt-10 space-y-10 bg-white/90 p-2 text-black md:p-10">
+          <div className="flex flex-wrap justify-center gap-6">
+            <article className="mx-auto flex w-full max-w-[30rem] flex-col justify-between rounded-lg p-1 text-black">
+              <header className="flex justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
+                <div className="flex flex-col items-center">
+                  <Image
+                    width={100}
+                    height={100}
+                    sizes="100vw"
+                    className="h-10 w-10 object-cover"
+                    src={match.timeMandante.escudo}
+                    alt="wallpaper de três jogadores no campo de futebol"
+                  />
+
+                  <p className="text-sm">{match.timeMandante.sigla}</p>
+                </div>
+                <h2 className="max-md:text-base">estatísticas</h2>
+                <div className="flex flex-col items-center">
+                  <Image
+                    width={100}
+                    height={100}
+                    sizes="100vw"
+                    className="h-10 w-10 object-cover"
+                    src={match.timeVisitante.escudo}
+                    alt="wallpaper de três jogadores no campo de futebol"
+                  />
+
+                  <p className="text-sm">{match.timeVisitante.sigla}</p>
+                </div>
+              </header>
+
+              <StatisticsContent match={match} />
+              <footer className="flex items-center justify-center gap-4 rounded-b-lg bg-emerald-300 p-1">
+                <Image
+                  width={100}
+                  height={100}
+                  sizes="100vw"
+                  className="h-10 w-10 object-cover"
+                  src="/img/brasileirao-assai.png"
+                  alt="wallpaper de três jogadores no campo de futebol"
+                />
+                <p className="text-xs">Principais estatísticas da partida</p>
+              </footer>
+            </article>
+
+            <div className="space-y-4">
+              <div className="flex flex-wrap justify-center gap-2">
+                <TeamPerformanceGraphic
+                  estatistica={match.timeMandante.estatisticaDaPartida}
+                  time={match.timeMandante.nome}
+                />
+
+                <TeamPerformanceGraphic
+                  estatistica={match.timeVisitante.estatisticaDaPartida}
+                  time={match.timeVisitante.nome}
+                />
+              </div>
+
+              <div className="flex flex-wrap justify-center gap-2">
+                <ActionMetricsGraphic
+                  estatistica={match.timeMandante.estatisticaDaPartida}
+                  time={match.timeMandante.nome}
+                />
+
+                <ActionMetricsGraphic
+                  estatistica={match.timeVisitante.estatisticaDaPartida}
+                  time={match.timeVisitante.nome}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-10 flex flex-wrap justify-center gap-4 bg-white/90 p-2 text-black md:p-10">
+          <CardsOfMatch
+            shield={match.timeMandante.escudo}
+            cards={match.timeMandante.estatisticaDaPartida[0].cartao}
+          />
+          <CardsOfMatch
+            shield={match.timeVisitante.escudo}
+            cards={match.timeVisitante.estatisticaDaPartida[0].cartao}
+          />
+        </section>
+
+        <section className="mt-10 flex flex-wrap justify-center gap-4 p-2 text-black md:p-10">
+          <article className="mx-auto flex w-full max-w-[30rem] flex-col rounded-lg p-1 text-black">
+            <header className="flex items-center justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
+              <div>
+                <h2 className="max-md:text-base">Escalação</h2>
+                <p className="text-sm font-light">
+                  Técnico: {match.timeMandante.Escalacao[0].tecnico}
+                </p>
+                <p className="text-sm font-light">
+                  Esquema Tático:{' '}
+                  {match.timeMandante.Escalacao[0].esquemaTatico}
+                </p>
+              </div>
+
               <div className="flex flex-col items-center">
                 <Image
                   width={100}
@@ -120,9 +224,82 @@ export default async function MatchDetails({ params }: ParamsProps) {
                   alt="wallpaper de três jogadores no campo de futebol"
                 />
 
-                <p className="text-sm">{match.timeMandante.sigla}</p>
+                <p className="text-sm">{match.timeMandante.nome}</p>
               </div>
-              <h2 className="max-md:text-base">estatísticas</h2>
+            </header>
+
+            <div className="flex justify-between">
+              <div className="w-1/2 bg-emerald-300 p-1">
+                <h3 className="max-md:text-base">Titular</h3>
+
+                <div className="flex flex-col gap-2">
+                  {match.timeMandante.Escalacao[0].titular.map((esc) => {
+                    return (
+                      <div
+                        key={esc.atleta.id}
+                        className="border-b border-black/10 font-light"
+                      >
+                        <p>{esc.atleta.nomePopular}</p>
+
+                        <div className="flex items-center">
+                          <Shirt className="h-3 w-3 md:h-4 md:w-4" />
+                          <div className="flex gap-2">
+                            <span className="max-md:text-xs">{esc.camisa}</span>
+                            <span className="max-md:text-xs">
+                              {esc.posicao}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+
+              <div className="w-1/2 bg-emerald-900 p-1 text-white">
+                <h3 className="max-md:text-base">Reserva</h3>
+
+                <div className="flex flex-col gap-2">
+                  {match.timeMandante.Escalacao[0].reserva.map((esc) => {
+                    return (
+                      <div
+                        key={esc.atleta.id}
+                        className="border-b border-black/10 font-light"
+                      >
+                        <p>{esc.atleta.nomePopular}</p>
+
+                        <div className="flex items-center">
+                          <Shirt className="h-3 w-3 md:h-4 md:w-4" />
+                          <div className="flex gap-2">
+                            <span className="max-md:text-xs">{esc.camisa}</span>
+                            <span className="max-md:text-xs">
+                              {esc.posicao}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <footer className="h-6 rounded-b-lg bg-emerald-300" />
+          </article>
+
+          <article className="mx-auto flex w-full max-w-[30rem] flex-col rounded-lg p-1 text-black">
+            <header className="flex items-center justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
+              <div>
+                <h2 className="max-md:text-base">Escalação</h2>
+                <p className="text-sm font-light">
+                  Técnico: {match.timeVisitante.Escalacao[0].tecnico}
+                </p>
+                <p className="text-sm font-light">
+                  Esquema Tático:{' '}
+                  {match.timeVisitante.Escalacao[0].esquemaTatico}
+                </p>
+              </div>
+
               <div className="flex flex-col items-center">
                 <Image
                   width={100}
@@ -133,282 +310,126 @@ export default async function MatchDetails({ params }: ParamsProps) {
                   alt="wallpaper de três jogadores no campo de futebol"
                 />
 
-                <p className="text-sm">{match.timeVisitante.sigla}</p>
+                <p className="text-sm">{match.timeVisitante.nome}</p>
               </div>
             </header>
 
-            <StatisticsContent match={match} />
-            <footer className="flex items-center justify-center gap-4 rounded-b-lg bg-emerald-300 p-1">
-              <Image
-                width={100}
-                height={100}
-                sizes="100vw"
-                className="h-10 w-10 object-cover"
-                src="/img/brasileirao-assai.png"
-                alt="wallpaper de três jogadores no campo de futebol"
-              />
-              <p className="text-xs">Principais estatísticas da partida</p>
-            </footer>
+            <div className="flex justify-between">
+              <div className="w-1/2 bg-emerald-300 p-1">
+                <h3 className="max-md:text-base">Titular</h3>
+
+                <div className="flex flex-col gap-2">
+                  {match.timeVisitante.Escalacao[0].titular.map((esc) => {
+                    return (
+                      <div
+                        key={esc.atleta.id}
+                        className="border-b border-black/10 font-light"
+                      >
+                        <p>{esc.atleta.nomePopular}</p>
+
+                        <div className="flex items-center">
+                          <Shirt className="h-3 w-3 md:h-4 md:w-4" />
+                          <div className="flex gap-2">
+                            <span className="max-md:text-xs">{esc.camisa}</span>
+                            <span className="max-md:text-xs">
+                              {esc.posicao}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+
+              <div className="w-1/2 bg-emerald-900 p-1 text-white">
+                <h3 className="max-md:text-base">Reserva</h3>
+
+                <div className="flex flex-col gap-2">
+                  {match.timeVisitante.Escalacao[0].reserva.map((esc) => {
+                    return (
+                      <div
+                        key={esc.atleta.id}
+                        className="border-b border-black/10 font-light"
+                      >
+                        <p>{esc.atleta.nomePopular}</p>
+
+                        <div className="flex items-center">
+                          <Shirt className="h-3 w-3 md:h-4 md:w-4" />
+                          <div className="flex gap-2">
+                            <span className="max-md:text-xs">{esc.camisa}</span>
+                            <span className="max-md:text-xs">
+                              {esc.posicao}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <footer className="h-6 rounded-b-lg bg-emerald-300" />
+          </article>
+        </section>
+
+        <section className="mt-10 flex flex-wrap justify-center gap-4 bg-white/90 p-2 text-black md:p-10">
+          <article className="mx-auto flex w-full max-w-[30rem] flex-col rounded-lg p-1 text-black">
+            <header className="flex items-center justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
+              <h2 className="max-md:text-base">Substituição</h2>
+
+              <div className="flex flex-col items-center">
+                <Image
+                  width={100}
+                  height={100}
+                  sizes="100vw"
+                  className="h-10 w-10 object-cover"
+                  src={match.timeMandante.escudo}
+                  alt="wallpaper de três jogadores no campo de futebol"
+                />
+
+                <p className="text-sm">{match.timeMandante.nome}</p>
+              </div>
+            </header>
+
+            <ReplacementContent
+              replacement={
+                match.timeMandante.estatisticaDaPartida[0].substituicao
+              }
+            />
+
+            <footer className="mt-2 h-6 rounded-b-lg bg-emerald-400" />
           </article>
 
-          <div className="space-y-4">
-            <div className="flex flex-wrap justify-center gap-2">
-              <TeamPerformanceGraphic
-                estatistica={match.timeMandante.estatisticaDaPartida}
-                time={match.timeMandante.nome}
-              />
+          <article className="mx-auto flex w-full max-w-[30rem] flex-col rounded-lg p-1 text-black">
+            <header className="flex items-center justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
+              <h2 className="max-md:text-base">Substituição</h2>
 
-              <TeamPerformanceGraphic
-                estatistica={match.timeVisitante.estatisticaDaPartida}
-                time={match.timeVisitante.nome}
-              />
-            </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  width={100}
+                  height={100}
+                  sizes="100vw"
+                  className="h-10 w-10 object-cover"
+                  src={match.timeVisitante.escudo}
+                  alt="wallpaper de três jogadores no campo de futebol"
+                />
 
-            <div className="flex flex-wrap justify-center gap-2">
-              <ActionMetricsGraphic
-                estatistica={match.timeMandante.estatisticaDaPartida}
-                time={match.timeMandante.nome}
-              />
-
-              <ActionMetricsGraphic
-                estatistica={match.timeVisitante.estatisticaDaPartida}
-                time={match.timeVisitante.nome}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mt-10 flex flex-wrap justify-center gap-4 bg-white/90 p-2 text-black md:p-10">
-        <CardsOfMatch
-          shield={match.timeMandante.escudo}
-          cards={match.timeMandante.estatisticaDaPartida[0].cartao}
-        />
-        <CardsOfMatch
-          shield={match.timeVisitante.escudo}
-          cards={match.timeVisitante.estatisticaDaPartida[0].cartao}
-        />
-      </section>
-
-      <section className="mt-10 flex flex-wrap justify-center gap-4 p-2 text-black md:p-10">
-        <article className="mx-auto flex w-full max-w-[30rem] flex-col rounded-lg p-1 text-black">
-          <header className="flex items-center justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
-            <div>
-              <h2 className="max-md:text-base">Escalação</h2>
-              <p className="text-sm font-light">
-                Técnico: {match.timeMandante.Escalacao[0].tecnico}
-              </p>
-              <p className="text-sm font-light">
-                Esquema Tático: {match.timeMandante.Escalacao[0].esquemaTatico}
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <Image
-                width={100}
-                height={100}
-                sizes="100vw"
-                className="h-10 w-10 object-cover"
-                src={match.timeMandante.escudo}
-                alt="wallpaper de três jogadores no campo de futebol"
-              />
-
-              <p className="text-sm">{match.timeMandante.nome}</p>
-            </div>
-          </header>
-
-          <div className="flex justify-between">
-            <div className="w-1/2 bg-emerald-300 p-1">
-              <h3 className="max-md:text-base">Titular</h3>
-
-              <div className="flex flex-col gap-2">
-                {match.timeMandante.Escalacao[0].titular.map((esc) => {
-                  return (
-                    <div
-                      key={esc.atleta.id}
-                      className="border-b border-black/10 font-light"
-                    >
-                      <p>{esc.atleta.nomePopular}</p>
-
-                      <div className="flex items-center">
-                        <Shirt className="h-3 w-3 md:h-4 md:w-4" />
-                        <div className="flex gap-2">
-                          <span className="max-md:text-xs">{esc.camisa}</span>
-                          <span className="max-md:text-xs">{esc.posicao}</span>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
+                <p className="text-sm">{match.timeVisitante.nome}</p>
               </div>
-            </div>
+            </header>
 
-            <div className="w-1/2 bg-emerald-900 p-1 text-white">
-              <h3 className="max-md:text-base">Reserva</h3>
+            <ReplacementContent
+              replacement={
+                match.timeVisitante.estatisticaDaPartida[0].substituicao
+              }
+            />
 
-              <div className="flex flex-col gap-2">
-                {match.timeMandante.Escalacao[0].reserva.map((esc) => {
-                  return (
-                    <div
-                      key={esc.atleta.id}
-                      className="border-b border-black/10 font-light"
-                    >
-                      <p>{esc.atleta.nomePopular}</p>
-
-                      <div className="flex items-center">
-                        <Shirt className="h-3 w-3 md:h-4 md:w-4" />
-                        <div className="flex gap-2">
-                          <span className="max-md:text-xs">{esc.camisa}</span>
-                          <span className="max-md:text-xs">{esc.posicao}</span>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-
-          <footer className="h-6 rounded-b-lg bg-emerald-300" />
-        </article>
-
-        <article className="mx-auto flex w-full max-w-[30rem] flex-col rounded-lg p-1 text-black">
-          <header className="flex items-center justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
-            <div>
-              <h2 className="max-md:text-base">Escalação</h2>
-              <p className="text-sm font-light">
-                Técnico: {match.timeVisitante.Escalacao[0].tecnico}
-              </p>
-              <p className="text-sm font-light">
-                Esquema Tático: {match.timeVisitante.Escalacao[0].esquemaTatico}
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <Image
-                width={100}
-                height={100}
-                sizes="100vw"
-                className="h-10 w-10 object-cover"
-                src={match.timeVisitante.escudo}
-                alt="wallpaper de três jogadores no campo de futebol"
-              />
-
-              <p className="text-sm">{match.timeVisitante.nome}</p>
-            </div>
-          </header>
-
-          <div className="flex justify-between">
-            <div className="w-1/2 bg-emerald-300 p-1">
-              <h3 className="max-md:text-base">Titular</h3>
-
-              <div className="flex flex-col gap-2">
-                {match.timeVisitante.Escalacao[0].titular.map((esc) => {
-                  return (
-                    <div
-                      key={esc.atleta.id}
-                      className="border-b border-black/10 font-light"
-                    >
-                      <p>{esc.atleta.nomePopular}</p>
-
-                      <div className="flex items-center">
-                        <Shirt className="h-3 w-3 md:h-4 md:w-4" />
-                        <div className="flex gap-2">
-                          <span className="max-md:text-xs">{esc.camisa}</span>
-                          <span className="max-md:text-xs">{esc.posicao}</span>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            <div className="w-1/2 bg-emerald-900 p-1 text-white">
-              <h3 className="max-md:text-base">Reserva</h3>
-
-              <div className="flex flex-col gap-2">
-                {match.timeVisitante.Escalacao[0].reserva.map((esc) => {
-                  return (
-                    <div
-                      key={esc.atleta.id}
-                      className="border-b border-black/10 font-light"
-                    >
-                      <p>{esc.atleta.nomePopular}</p>
-
-                      <div className="flex items-center">
-                        <Shirt className="h-3 w-3 md:h-4 md:w-4" />
-                        <div className="flex gap-2">
-                          <span className="max-md:text-xs">{esc.camisa}</span>
-                          <span className="max-md:text-xs">{esc.posicao}</span>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-
-          <footer className="h-6 rounded-b-lg bg-emerald-300" />
-        </article>
-      </section>
-
-      <section className="mt-10 flex flex-wrap justify-center gap-4 bg-white/90 p-2 text-black md:p-10">
-        <article className="mx-auto flex w-full max-w-[30rem] flex-col rounded-lg p-1 text-black">
-          <header className="flex items-center justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
-            <h2 className="max-md:text-base">Substituição</h2>
-
-            <div className="flex flex-col items-center">
-              <Image
-                width={100}
-                height={100}
-                sizes="100vw"
-                className="h-10 w-10 object-cover"
-                src={match.timeMandante.escudo}
-                alt="wallpaper de três jogadores no campo de futebol"
-              />
-
-              <p className="text-sm">{match.timeMandante.nome}</p>
-            </div>
-          </header>
-
-          <ReplacementContent
-            replacement={
-              match.timeMandante.estatisticaDaPartida[0].substituicao
-            }
-          />
-
-          <footer className="mt-2 h-6 rounded-b-lg bg-emerald-400" />
-        </article>
-
-        <article className="mx-auto flex w-full max-w-[30rem] flex-col rounded-lg p-1 text-black">
-          <header className="flex items-center justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
-            <h2 className="max-md:text-base">Substituição</h2>
-
-            <div className="flex flex-col items-center">
-              <Image
-                width={100}
-                height={100}
-                sizes="100vw"
-                className="h-10 w-10 object-cover"
-                src={match.timeVisitante.escudo}
-                alt="wallpaper de três jogadores no campo de futebol"
-              />
-
-              <p className="text-sm">{match.timeVisitante.nome}</p>
-            </div>
-          </header>
-
-          <ReplacementContent
-            replacement={
-              match.timeVisitante.estatisticaDaPartida[0].substituicao
-            }
-          />
-
-          <footer className="h-6 rounded-b-lg bg-emerald-300" />
-        </article>
-      </section>
-    </main>
+            <footer className="h-6 rounded-b-lg bg-emerald-300" />
+          </article>
+        </section>
+      </main>
+    </div>
   )
 }

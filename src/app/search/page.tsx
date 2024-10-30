@@ -35,10 +35,14 @@ export default async function Search({ searchParams }: SearchProps) {
   const searchedItemHasNotBeenFound = matches.length === 0 && team1
 
   return (
-    <div className="bg-green-800/80 pt-28">
+    <div className="relative bg-green-800/80 pt-28">
+      <p className="absolute right-5 top-5 text-2xl font-extrabold text-yellow-300 md:right-10 md:top-10">
+        Arena <span className="text-green-500">Sync</span>
+      </p>
+
       <div className="pl-10">
         <Link href="/" className="border-b">
-          Voltar
+          Voltar para Home
         </Link>
       </div>
 
