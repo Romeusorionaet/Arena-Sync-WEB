@@ -1,3 +1,7 @@
+export interface ChampionshipsSeasonProps {
+  temporada: string
+}
+
 export interface MatchProps {
   id: string
   dataRealizacaoIso: string

@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google'
 import '../assets/styles/globals.css'
 import '../assets/styles/scrollbar.css'
 import { Footer } from './components/footer'
+import ClientProviders from '@/utils/client-providers'
 
 const roboto = Roboto({ subsets: ['latin'], weight: ['300', '500', '700'] })
 
@@ -20,7 +21,8 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <body className={roboto.className}>
-        {children} <Footer />
+        <ClientProviders>{children}</ClientProviders>
+        <Footer />
       </body>
     </html>
   )
