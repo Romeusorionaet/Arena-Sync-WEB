@@ -2,12 +2,15 @@ import Image from 'next/image'
 import '@/assets/styles/table-statistics.css'
 import { SearchFormMatch } from '../components/search-form-match'
 import { UpcomingMatches } from '../components/upcoming-matches'
+import { Header } from '../components/header'
 
 export default function Home() {
   return (
     <div>
-      <main>
-        <section className="flex max-md:flex-col md:h-[40rem]">
+      <Header />
+
+      <main className="max-md:pt-12">
+        <section id="topPage" className="flex max-md:flex-col md:h-[40rem]">
           <div className="h-full w-full bg-green-600 p-4 md:w-1/3">
             <Image
               width={500}
@@ -43,7 +46,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex h-[60rem] items-center justify-center bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat p-4 max-xl:flex-col max-xl:gap-8 md:p-20">
+        <section
+          id="schedulingMatches"
+          className="flex h-[60rem] items-center justify-center bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat p-4 max-xl:flex-col max-xl:gap-8 md:p-20"
+        >
           <article className="mx-auto flex h-[40rem] w-full max-w-[30rem] flex-col justify-between rounded-lg bg-white/90 p-1 text-black">
             <header className="flex justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
               <div className="flex flex-col items-center">
@@ -128,7 +134,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-green-700 p-4 pb-20">
+        <section id="searchArea" className="bg-green-700 p-4 pb-20">
           <h2 className="mb-10 text-center font-bold max-md:mt-20">
             Pesquise por uma partida
           </h2>
