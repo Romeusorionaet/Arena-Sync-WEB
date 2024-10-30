@@ -5,13 +5,14 @@ import { UpcomingMatches } from '../components/upcoming-matches'
 import { Header } from '../components/header'
 
 export default function Home() {
+  // formatar os alts das imgs
   return (
     <div>
       <Header />
 
       <main className="max-md:pt-12">
         <section id="topPage" className="flex max-md:flex-col md:h-[40rem]">
-          <div className="h-full w-full bg-gradient-to-b from-green-600 to-yellow-500 p-4 md:w-1/3">
+          <div className="relative h-full w-full bg-gradient-to-b from-green-600 to-yellow-500 p-4 md:w-1/3">
             <Image
               width={500}
               height={500}
@@ -32,6 +33,8 @@ export default function Home() {
               Acompanhe cada jogada, cada gol e todos os detalhes do maior
               campeonato de futebol do Brasil.
             </p>
+
+            <div className="absolute -bottom-10 left-0 h-8 w-full bg-gradient-to-b from-yellow-500/40 to-yellow-600 md:bottom-0" />
           </div>
 
           <div className="relative flex h-full w-full overflow-hidden md:h-full md:w-2/3">
@@ -45,7 +48,7 @@ export default function Home() {
               width={500}
               height={500}
               sizes="100vw"
-              className="md:h-full] mx-auto w-full object-cover"
+              className="mx-auto w-full object-cover md:h-full"
               src="/img/futebol-arena.png"
               alt="atleta de futebol"
             />
@@ -64,11 +67,11 @@ export default function Home() {
                   height={100}
                   sizes="100vw"
                   className="h-10 w-10 object-cover"
-                  src="/img/brasileirao-assai.png"
+                  src="https://cdn.api-futebol.com.br/escudos/638d3492a6e0b.svg"
                   alt="wallpaper de três jogadores no campo de futebol"
                 />
 
-                <p className="text-sm">Bragantino</p>
+                <p className="text-sm">Fluminense</p>
               </div>
               <h2>estatísticas</h2>
               <div className="flex flex-col items-center">
@@ -77,33 +80,36 @@ export default function Home() {
                   height={100}
                   sizes="100vw"
                   className="h-10 w-10 object-cover"
-                  src="/img/brasileirao-assai.png"
+                  src="https://cdn.api-futebol.com.br/escudos/638d34e1b8948.svg"
                   alt="wallpaper de três jogadores no campo de futebol"
                 />
 
-                <p className="text-sm">Bragantino</p>
+                <p className="text-sm">Athletico-PR</p>
               </div>
             </header>
 
             <div>
               <ul className="table-statistics space-y-4 p-2">
                 <li>
-                  <span>7</span>chutes<span>9</span>
+                  <span>1</span>Defesas<span>6</span>
                 </li>
                 <li>
-                  <span>3</span>chutes ao gol<span>5</span>
+                  <span>1</span>Gols<span>0</span>
                 </li>
                 <li>
-                  <span>50%</span>posse de bola<span>50%</span>
+                  <span>4</span>impedimentos<span>4</span>
                 </li>
                 <li>
-                  <span>235</span>passes<span>340</span>
+                  <span>9</span>faltas<span>15</span>
                 </li>
                 <li>
-                  <span>30%</span>precisão de passe<span>70%</span>
+                  <span>72%</span>posse de bola<span>28%</span>
                 </li>
                 <li>
-                  <span>9</span>faltas<span>10</span>
+                  <span>5</span>Escanteios<span>3</span>
+                </li>
+                <li>
+                  <span>15</span>desarmes<span>15</span>
                 </li>
                 <li>
                   <span>1</span>cartões amarelos<span>3</span>
@@ -111,13 +117,9 @@ export default function Home() {
                 <li>
                   <span>0</span>cartões vermelhos<span>0</span>
                 </li>
-                <li>
-                  <span>1</span>impedimentos<span>2</span>
-                </li>
-                <li>
-                  <span>4</span>escanteios<span>2</span>
-                </li>
               </ul>
+
+              <h2 className="text-center">E muito mais!</h2>
             </div>
 
             <footer className="flex items-center justify-center gap-4 rounded-b-lg bg-emerald-300 p-1">
@@ -129,16 +131,31 @@ export default function Home() {
                 src="/img/brasileirao-assai.png"
                 alt="wallpaper de três jogadores no campo de futebol"
               />
-              <p className="text-xs">
-                Principais estatísticas da ultima partida
-              </p>
+              <p className="text-xs">Principais estatísticas da partida</p>
             </footer>
           </article>
 
           <UpcomingMatches />
         </section>
 
+        <div className="h-8 w-full bg-gradient-to-b from-green-800 to-green-700" />
+
         <section id="searchArea" className="bg-green-700 p-4 pb-20">
+          <div className="my-10 flex items-center gap-6 max-lg:flex-wrap max-md:flex-col">
+            <p className="text-center text-2xl font-bold lg:text-4xl">
+              Quando o talento encontra a estratégia, cada dado faz diferença.
+              Explore as estatísticas do jogo!
+            </p>
+            <Image
+              width={900}
+              height={900}
+              sizes="100vw"
+              className="object-container mx-auto h-full max-h-[40rem] w-full max-w-[50rem] border-8 border-yellow-400"
+              src="/img/view-details.png"
+              alt="visualização de tabelas e gráficos detalhado da partida entre dois times"
+            />
+          </div>
+
           <h2 className="mb-10 text-center font-bold max-md:mt-20">
             Pesquise por uma partida
           </h2>
