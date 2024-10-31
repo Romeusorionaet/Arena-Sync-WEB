@@ -3,9 +3,9 @@ import '@/assets/styles/table-statistics.css'
 import { SearchFormMatch } from '../components/search-form-match'
 import { UpcomingMatches } from '../components/upcoming-matches'
 import { Header } from '../components/header'
+import { Suspense } from 'react'
 
 export default function Home() {
-  // formatar os alts das imgs
   return (
     <div>
       <Header />
@@ -59,8 +59,6 @@ export default function Home() {
           id="schedulingMatches"
           className="flex h-[60rem] items-center justify-center bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat p-4 max-xl:flex-col max-xl:gap-8 md:p-20"
         >
-          {/* Widget-classificação */}
-
           <UpcomingMatches />
         </section>
 

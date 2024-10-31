@@ -5,15 +5,25 @@ import { getNearestMatches } from '@/actions/get-nearest-matches'
 import { useQuery } from '@tanstack/react-query'
 import { X } from 'lucide-react'
 import Image from 'next/image'
+import { UpcomingMatchesSkeleton } from './skeletons/upcoming-matches-skeleton'
+import { UpcomingMatchesError } from '../errors/upcoming-matches-error'
 
 export function UpcomingMatches() {
   const thisYear = new Date().getFullYear()
 
-  const { data } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ['nearestMatches'],
     queryFn: () => getNearestMatches(thisYear.toString()),
     staleTime: 1000 * 60 * 60 * 24, // 1 day
   })
+
+  if (isLoading) {
+    return <UpcomingMatchesSkeleton />
+  }
+
+  if (error) {
+    return <UpcomingMatchesError />
+  }
 
   const matches: NearestMatchesProps[] = JSON.parse(data?.props.matches || '[]')
 
@@ -66,7 +76,7 @@ export function UpcomingMatches() {
               </div>
             </div>
 
-            <div className="flex flex-col rounded-r-lg bg-white text-center">
+            <div className="flex flex-col rounded-e-lg bg-white text-center">
               <p className="bg-emerald-400 p-1">{formattedDate}</p>
               <span className="text-black">{formattedTime}</span>
             </div>
