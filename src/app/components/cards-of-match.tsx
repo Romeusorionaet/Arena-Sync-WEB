@@ -16,7 +16,7 @@ interface Props {
           posicao: string
         },
       ]
-      Reserva: [
+      reserva: [
         {
           camisa: string
           posicao: string
@@ -62,14 +62,14 @@ export function CardsOfMatch({ cards, shield }: Props) {
                 {card.atleta ? (
                   <div className="mt-4 flex flex-col font-light max-md:text-xs">
                     <p>{card.atleta?.nomePopular}</p>
-                    {card.atleta?.Reserva.length > 0 && (
+                    {card.atleta?.reserva.length > 0 && (
                       <div className="space-y-2 text-center">
                         <p className="bg-yellow-50">
-                          {card.atleta?.Reserva[0].posicao}
+                          {card.atleta?.reserva[0].posicao}
                         </p>
                         <div className="mt-4 flex items-center justify-center gap-1">
                           <Shirt className="h-3 w-3 md:h-4 md:w-4" />
-                          <p>{card.atleta?.Reserva[0].camisa}</p>
+                          <p>{card.atleta?.reserva[0].camisa}</p>
                         </div>
                       </div>
                     )}
@@ -126,14 +126,14 @@ export function CardsOfMatch({ cards, shield }: Props) {
                 {card.atleta ? (
                   <div className="mt-4 flex flex-col font-light max-md:text-xs">
                     <p>{card.atleta?.nomePopular}</p>
-                    {card.atleta?.Reserva.length > 0 && (
+                    {card.atleta?.reserva.length > 0 && (
                       <div className="space-y-2 text-center">
                         <p className="bg-red-50">
-                          {card.atleta?.Reserva[0].posicao}
+                          {card.atleta?.reserva[0].posicao}
                         </p>
                         <div className="mt-4 flex items-center justify-center gap-1">
                           <Shirt className="h-3 w-3 md:h-4 md:w-4" />
-                          <p>{card.atleta?.Reserva[0].camisa}</p>
+                          <p>{card.atleta?.reserva[0].camisa}</p>
                         </div>
                       </div>
                     )}

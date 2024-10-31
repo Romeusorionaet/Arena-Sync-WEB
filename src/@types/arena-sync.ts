@@ -77,7 +77,7 @@ export type StatisticsProps = [
               posicao: string
             },
           ]
-          Reserva: [
+          reserva: [
             {
               camisa: string
               posicao: string
@@ -99,7 +99,7 @@ export type StatisticsProps = [
               camisa: string
             },
           ]
-          Reserva: [
+          reserva: [
             {
               posicao: string
               camisa: string
@@ -133,7 +133,7 @@ export type StatisticsProps = [
         entrouAtleta: {
           id: string
           nomePopular: string
-          Reserva: [
+          reserva: [
             {
               camisa: string
               posicao: string
@@ -152,7 +152,7 @@ export type StatisticsProps = [
         }
       },
     ]
-    Escalacao: [
+    escalacao: [
       {
         tecnico: string
         esquemaTatico: string
@@ -194,13 +194,13 @@ export interface MatchDetailsProps {
     sigla: string
     escudo: string
     estatisticaDaPartida: StatisticsProps
-    Escalacao: LineupProps
+    escalacao: LineupProps
   }
   timeVisitante: {
     nome: string
     sigla: string
     escudo: string
     estatisticaDaPartida: StatisticsProps
-    Escalacao: LineupProps
+    escalacao: LineupProps
   }
 }
