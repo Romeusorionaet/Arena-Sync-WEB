@@ -105,9 +105,11 @@ export default async function MatchDetails({ params }: ParamsProps) {
               </span>
             </p>
 
-            <p className="text-center max-md:text-base max-md:font-light">
-              Estádio: {match.estadio}
-            </p>
+            {match.estadio && (
+              <p className="text-center max-md:text-base max-md:font-light">
+                Estádio: {match.estadio}
+              </p>
+            )}
           </div>
           <Image
             width={100}
@@ -228,11 +230,11 @@ export default async function MatchDetails({ params }: ParamsProps) {
               <div>
                 <h2 className="max-md:text-base">Escalação</h2>
                 <p className="text-sm font-light">
-                  Técnico: {match.timeMandante.Escalacao[0].tecnico}
+                  Técnico: {match.timeMandante.escalacao[0].tecnico}
                 </p>
                 <p className="text-sm font-light">
                   Esquema Tático:{' '}
-                  {match.timeMandante.Escalacao[0].esquemaTatico}
+                  {match.timeMandante.escalacao[0].esquemaTatico}
                 </p>
               </div>
 
@@ -255,7 +257,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                 <h3 className="max-md:text-base">Titular</h3>
 
                 <div className="flex flex-col gap-2">
-                  {match.timeMandante.Escalacao[0].titular.map((esc) => {
+                  {match.timeMandante.escalacao[0].titular.map((esc) => {
                     return (
                       <div
                         key={esc.atleta.id}
@@ -282,7 +284,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                 <h3 className="max-md:text-base">Reserva</h3>
 
                 <div className="flex flex-col gap-2">
-                  {match.timeMandante.Escalacao[0].reserva.map((esc) => {
+                  {match.timeMandante.escalacao[0].reserva.map((esc) => {
                     return (
                       <div
                         key={esc.atleta.id}
@@ -314,11 +316,11 @@ export default async function MatchDetails({ params }: ParamsProps) {
               <div>
                 <h2 className="max-md:text-base">Escalação</h2>
                 <p className="text-sm font-light">
-                  Técnico: {match.timeVisitante.Escalacao[0].tecnico}
+                  Técnico: {match.timeVisitante.escalacao[0].tecnico}
                 </p>
                 <p className="text-sm font-light">
                   Esquema Tático:{' '}
-                  {match.timeVisitante.Escalacao[0].esquemaTatico}
+                  {match.timeVisitante.escalacao[0].esquemaTatico}
                 </p>
               </div>
 
@@ -341,7 +343,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                 <h3 className="max-md:text-base">Titular</h3>
 
                 <div className="flex flex-col gap-2">
-                  {match.timeVisitante.Escalacao[0].titular.map((esc) => {
+                  {match.timeVisitante.escalacao[0].titular.map((esc) => {
                     return (
                       <div
                         key={esc.atleta.id}
@@ -368,7 +370,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                 <h3 className="max-md:text-base">Reserva</h3>
 
                 <div className="flex flex-col gap-2">
-                  {match.timeVisitante.Escalacao[0].reserva.map((esc) => {
+                  {match.timeVisitante.escalacao[0].reserva.map((esc) => {
                     return (
                       <div
                         key={esc.atleta.id}
