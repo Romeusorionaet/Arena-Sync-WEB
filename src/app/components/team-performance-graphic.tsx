@@ -11,15 +11,15 @@ interface Props {
 export default function TeamPerformanceGraphic({ estatistica, time }: Props) {
   const data = [
     {
-      name: 'Posse de Bola',
+      name: 'Posse de Bola %',
       value: parseFloat(estatistica[0].posseDeBola || '0'),
     },
     {
-      name: 'Finalização',
+      name: 'Finalização %',
       value: parseFloat(estatistica[0].finalizacao[0].precisao || '0'),
     },
     {
-      name: 'Passe',
+      name: 'Passe %',
       value: parseFloat(estatistica[0].passe[0].precisao || '0'),
     },
   ]

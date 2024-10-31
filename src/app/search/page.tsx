@@ -72,7 +72,13 @@ export default async function Search({ searchParams }: SearchProps) {
             <p>Não encontrado.</p>
           ) : (
             matches.map((match) => {
-              const isFinalized = match.status === 'agendado'
+              const isFinalized = match.status === 'finalizado'
+              const noStatistics =
+                (match.placarMandante ||
+                  match.placarVisitante ||
+                  match.placar) &&
+                isFinalized
+
               return (
                 <article
                   key={match.id}
@@ -135,14 +141,23 @@ export default async function Search({ searchParams }: SearchProps) {
                       </span>
                     </div>
 
-                    <Link
-                      href={`/match-details/${match.timeMandante.sigla}-${match.timeVisitante.sigla}/${match.id}`}
-                      data-value={isFinalized}
-                      className="flex gap-2 text-sm underline opacity-80 hover:opacity-100 data-[value=true]:hidden md:text-base"
-                    >
-                      Estatística
-                      <ChartColumnStacked className="h-5 w-5 md:h-6 md:w-6" />
-                    </Link>
+                    {noStatistics ? (
+                      <Link
+                        href={`/match-details/${match.timeMandante.sigla}-${match.timeVisitante.sigla}/${match.id}`}
+                        className="flex gap-2 text-sm underline opacity-80 hover:opacity-100 md:text-base"
+                      >
+                        Estatística
+                        <ChartColumnStacked className="h-5 w-5 md:h-6 md:w-6" />
+                      </Link>
+                    ) : (
+                      <p
+                        data-value={isFinalized}
+                        className="flex cursor-not-allowed gap-2 text-sm line-through opacity-60 data-[value=false]:hidden md:text-base"
+                      >
+                        Estatística
+                        <ChartColumnStacked className="h-5 w-5 text-red-500 md:h-6 md:w-6" />
+                      </p>
+                    )}
                   </div>
 
                   <footer className="flex h-6 items-center justify-center rounded-b-lg bg-white">
