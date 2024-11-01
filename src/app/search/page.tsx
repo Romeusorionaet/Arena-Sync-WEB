@@ -8,6 +8,9 @@ import Link from 'next/link'
 import { SearchFormMatch } from '@/app/components/search-form-match'
 import { Pagination } from '@/app/components/pagination'
 import { ChartColumnStacked } from 'lucide-react'
+import { toZonedTime } from 'date-fns-tz'
+
+const timeZone = 'America/Sao_Paulo'
 
 interface SearchProps {
   searchParams: {
@@ -72,6 +75,11 @@ export default async function Search({ searchParams }: SearchProps) {
             <p>Não encontrado.</p>
           ) : (
             matches.map((match) => {
+              const zonedDate = toZonedTime(match.dataRealizacaoIso, timeZone)
+              const formattedDate = format(zonedDate, 'dd/MM, HH:mm', {
+                locale: ptBR,
+              })
+
               const isFinalized = match.status === 'finalizado'
               const noStatistics =
                 (match.placarMandante ||
@@ -93,15 +101,7 @@ export default async function Search({ searchParams }: SearchProps) {
                         {match.estadio}
                       </p>
                     </div>
-                    <span className="text-xs md:text-sm">
-                      {format(
-                        new Date(match.dataRealizacaoIso),
-                        'dd/MM, HH:mm',
-                        {
-                          locale: ptBR,
-                        },
-                      )}
-                    </span>
+                    <span className="text-xs md:text-sm">{formattedDate}</span>
                   </header>
 
                   <div className="flex flex-col items-center gap-4 p-1">
