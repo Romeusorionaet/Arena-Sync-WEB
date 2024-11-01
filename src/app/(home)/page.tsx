@@ -3,7 +3,8 @@ import '@/assets/styles/table-statistics.css'
 import { SearchFormMatch } from '../components/search-form-match'
 import { UpcomingMatches } from '../components/upcoming-matches'
 import { Header } from '../components/header'
-import { Suspense } from 'react'
+import { WidgetRound } from '../components/widget-round'
+import { WidgetTable } from '../components/widget-table'
 
 export default function Home() {
   return (
@@ -37,28 +38,23 @@ export default function Home() {
             <div className="absolute -bottom-10 left-0 h-8 w-full bg-gradient-to-b from-yellow-500/40 to-yellow-600 md:bottom-0" />
           </div>
 
-          <div className="relative flex h-full w-full overflow-hidden md:h-full md:w-2/3">
+          <div className="relative flex h-[40rem] w-full items-center justify-center bg-[url('/img/futebol-arena.png')] bg-cover bg-center bg-no-repeat md:h-full md:w-2/3 md:pt-4">
             <p className="absolute right-5 top-5 text-2xl font-extrabold text-yellow-300 md:right-10 md:top-10">
               Arena{' '}
               <span className="rounded-md bg-white p-0.5 text-green-500">
                 Sync
               </span>
             </p>
-            <Image
-              width={500}
-              height={500}
-              sizes="100vw"
-              className="mx-auto w-full object-cover md:h-full"
-              src="/img/futebol-arena.png"
-              alt=""
-            />
+            <WidgetRound />
           </div>
         </section>
 
         <section
           id="schedulingMatches"
-          className="flex h-[60rem] items-center justify-center bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat p-4 max-xl:flex-col max-xl:gap-8 md:p-20"
+          className="flex h-[60rem] items-center justify-center gap-6 bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat p-4 max-xl:flex-col max-xl:gap-8 md:p-20"
         >
+          <WidgetTable />
+
           <UpcomingMatches />
         </section>
 

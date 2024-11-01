@@ -29,7 +29,7 @@ export function UpcomingMatches() {
 
   return (
     <div className="scrollbar flex flex-col gap-2 overflow-auto pr-1">
-      {matches.map((match) => {
+      {matches.map((match, index) => {
         const matchDate = new Date(match.dataRealizacaoIso)
 
         const formattedDate = matchDate.toLocaleDateString('pt-BR', {
@@ -43,7 +43,7 @@ export function UpcomingMatches() {
         })
 
         return (
-          <div key={match.dataRealizacaoIso} className="flex gap-2">
+          <div key={index} className="flex gap-2">
             <div className="flex w-full justify-between rounded-s-lg bg-white uppercase text-black">
               <div className="flex items-center justify-center gap-2">
                 <Image

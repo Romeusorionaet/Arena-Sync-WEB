@@ -11,11 +11,11 @@ interface Props {
 
 export default function ActionMetricsGraphic({ estatistica, time }: Props) {
   const data = [
-    { name: 'Faltas', value: (estatistica[0].faltas || 0) * 5 },
-    { name: 'Defesas', value: (estatistica[0].defesas || 0) * 5 },
-    { name: 'Cartões', value: (estatistica[0].cartao?.length || 0) * 5 },
-    { name: 'Gols', value: (estatistica[0].gol.length || 0) * 5 },
-    { name: 'Escanteios', value: (estatistica[0].escanteios || 0) * 5 },
+    { name: 'Faltas', value: estatistica[0].faltas || 0 },
+    { name: 'Defesas', value: estatistica[0].defesas || 0 },
+    { name: 'Cartões', value: estatistica[0].cartao?.length || 0 },
+    { name: 'Gols', value: estatistica[0].gol.length || 0 },
+    { name: 'Escanteios', value: estatistica[0].escanteios || 0 },
   ]
 
   const series = [
