@@ -3,8 +3,8 @@ import '@/assets/styles/table-statistics.css'
 import { SearchFormMatch } from '../components/search-form-match'
 import { UpcomingMatches } from '../components/upcoming-matches'
 import { Header } from '../components/header'
-import { WidgetRound } from '../components/widget-round'
 import { ChatBot } from '../components/chat-bot'
+import { WidgetMatchTable } from '../components/widgets/widget-match-table'
 
 export default function Home() {
   return (
@@ -45,7 +45,8 @@ export default function Home() {
                 Sync
               </span>
             </p>
-            <WidgetRound />
+            <WidgetMatchTable />
+            {/* <WidgetRound /> */}
           </div>
         </section>
         <section
