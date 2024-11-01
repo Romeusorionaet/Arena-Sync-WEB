@@ -17,7 +17,7 @@ export default function ActionMetricsGraphic({ estatistica, time }: Props) {
     { name: 'Gols', value: estatistica[0].gol.length || 0 },
     { name: 'Escanteios', value: estatistica[0].escanteios || 0 },
   ]
-  console.log(data[3], '===data')
+
   const series = [
     {
       data: data.map((item) => item.value),
