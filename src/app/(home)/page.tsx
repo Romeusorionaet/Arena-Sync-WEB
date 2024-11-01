@@ -13,25 +13,37 @@ export default function Home() {
       <Header />
 
       <main className="max-md:pt-12">
-        <section id="topPage" className="flex max-md:flex-col md:h-[40rem]">
+        <section
+          id="topPage"
+          className="relative flex max-md:flex-col md:h-[40rem]"
+        >
+          <Image
+            width={500}
+            height={500}
+            sizes="100vw"
+            className="absolute z-10 mx-auto h-44 w-44 object-contain max-md:right-0 max-md:top-8 md:bottom-4 md:left-[11%]"
+            src="/img/athlete.png"
+            alt=""
+          />
+
           <div className="relative h-full w-full bg-gradient-to-b from-green-600 to-yellow-500 p-4 md:w-1/3">
             <Image
               width={500}
               height={500}
               sizes="100vw"
-              className="mx-auto max-h-[300px] max-w-[200px] object-cover"
+              className="max-h-[300px] max-w-[200px] object-cover md:mx-auto"
               src="/img/brasileirao-assai.png"
               alt="logo do campeonato brasileirão de futebol"
             />
 
-            <div className="text-center">
+            <div className="-mt-10 text-center">
               <h1 className="font-bold text-emerald-100 md:text-4xl">
                 Aqui tem Brasileirão
               </h1>
               <span className="font-semibold">A-B</span>
             </div>
 
-            <p className="mx-auto mt-10 md:mt-20">
+            <p className="mx-auto mt-4 max-md:mt-10">
               Acompanhe cada jogada, cada gol e todos os detalhes do maior
               campeonato de futebol do Brasil.
             </p>
@@ -51,14 +63,14 @@ export default function Home() {
         </section>
         <section
           id="classificationTable"
-          className="flex h-[60rem] items-center justify-center gap-6 bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat max-xl:flex-col max-xl:gap-8 md:p-20 md:p-4"
+          className="flex h-[60rem] items-center justify-center gap-6 bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat max-xl:flex-col max-xl:gap-8 md:p-4"
         >
           <WidgetMatchTable />
         </section>
 
         <div className="h-8 w-full bg-gradient-to-b from-green-800 to-green-700" />
 
-        <section className="bg-gradient-to-b from-green-700 to-transparent p-1 pb-10 md:p-4">
+        <section className="bg-gradient-to-b from-green-700 to-yellow-100 p-1 pb-4 md:p-4">
           <div className="my-10 flex items-center gap-6 max-lg:flex-wrap max-md:flex-col">
             <p className="text-center text-2xl font-bold lg:text-4xl">
               Quando o talento encontra a estratégia, cada dado faz diferença.

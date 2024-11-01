@@ -175,7 +175,7 @@ export default async function Search({ searchParams }: SearchProps) {
           )}
         </div>
 
-        <div className="pb-28">
+        <div className="pb-10">
           <Pagination
             sizeList={matches.length}
             disableArrowIf={!searchedItemHasNotBeenFound}
