@@ -2,7 +2,7 @@
 
 @layer utilities {
   .scrollbar::-webkit-scrollbar {
-    @apply w-2
+    @apply w-1
   }
 
   .scrollbar::-webkit-scrollbar-thumb {

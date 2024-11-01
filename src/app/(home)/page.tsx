@@ -5,6 +5,7 @@ import { UpcomingMatches } from '../components/upcoming-matches'
 import { Header } from '../components/header'
 import { ChatBot } from '../components/chat-bot'
 import { WidgetMatchTable } from '../components/widgets/widget-match-table'
+import { WidgetMatchRound } from '../components/widgets/widget-match-round'
 
 export default function Home() {
   return (
@@ -38,28 +39,29 @@ export default function Home() {
             <div className="absolute -bottom-10 left-0 h-8 w-full bg-gradient-to-b from-yellow-500/40 to-yellow-600 md:bottom-0" />
           </div>
 
-          <div className="relative flex h-[40rem] w-full items-center justify-center bg-[url('/img/futebol-arena.png')] bg-cover bg-center bg-no-repeat md:h-full md:w-2/3 md:pt-4">
+          <div className="relative flex h-[40rem] w-full items-center justify-center bg-[url('/img/futebol-arena.png')] bg-cover bg-center bg-no-repeat md:h-full md:w-2/3 md:pt-6">
             <p className="absolute right-5 top-5 text-2xl font-extrabold text-yellow-300 md:right-10 md:top-10">
               Arena{' '}
               <span className="rounded-md bg-white p-0.5 text-green-500">
                 Sync
               </span>
             </p>
-            <WidgetMatchTable />
-            {/* <WidgetRound /> */}
+            <WidgetMatchRound />
           </div>
         </section>
         <section
           id="schedulingMatches"
           className="flex h-[60rem] items-center justify-center gap-6 bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat p-4 max-xl:flex-col max-xl:gap-8 md:p-20"
         >
-          <ChatBot />
-          <UpcomingMatches />
+          <WidgetMatchTable />
         </section>
 
         <div className="h-8 w-full bg-gradient-to-b from-green-800 to-green-700" />
 
-        <section id="searchArea" className="bg-green-700 p-4 pb-20">
+        <section
+          id="searchArea"
+          className="bg-gradient-to-b from-green-700 to-transparent p-1 pb-10 md:p-4"
+        >
           <div className="my-10 flex items-center gap-6 max-lg:flex-wrap max-md:flex-col">
             <p className="text-center text-2xl font-bold lg:text-4xl">
               Quando o talento encontra a estratégia, cada dado faz diferença.
@@ -79,6 +81,14 @@ export default function Home() {
           </h2>
 
           <SearchFormMatch />
+
+          <div className="mt-20 flex items-center justify-center gap-8 max-xl:flex-col md:h-[50rem]">
+            <div className="flex h-1/2 w-full items-center justify-center rounded-lg bg-[url('/img/footbal-fire.png')] bg-cover bg-center bg-no-repeat p-4 xl:h-2/3">
+              <UpcomingMatches />
+            </div>
+
+            <ChatBot />
+          </div>
         </section>
       </main>
     </div>

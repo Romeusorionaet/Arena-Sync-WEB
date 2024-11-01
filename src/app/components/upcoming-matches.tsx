@@ -28,7 +28,7 @@ export function UpcomingMatches() {
   const matches: NearestMatchesProps[] = JSON.parse(data?.props.matches || '[]')
 
   return (
-    <div className="scrollbar flex flex-col gap-2 overflow-auto pr-1">
+    <div className="scrollbar mx-auto flex w-full flex-col justify-center gap-2 overflow-auto rounded-lg pr-1 opacity-90 md:w-[40rem]">
       {matches.map((match, index) => {
         const matchDate = new Date(match.dataRealizacaoIso)
 
@@ -45,7 +45,7 @@ export function UpcomingMatches() {
         return (
           <div key={index} className="flex gap-2">
             <div className="flex w-full justify-between rounded-s-lg bg-white uppercase text-black">
-              <div className="flex items-center justify-center gap-2">
+              <div className="flex items-center justify-center gap-2 bg-red-500/10 pr-2">
                 <Image
                   width={100}
                   height={100}
@@ -59,9 +59,9 @@ export function UpcomingMatches() {
                 </p>
               </div>
 
-              <X className="mt-4 h-6 w-6 text-black md:mt-2 md:h-10 md:w-10" />
+              <X className="mt-4 h-6 w-6 text-red-800 md:mt-2 md:h-10 md:w-10" />
 
-              <div className="flex items-center justify-center gap-2">
+              <div className="flex items-center justify-center gap-2 bg-red-500/10 pl-2">
                 <p className="border p-0.5 text-center max-md:text-xs max-md:font-light">
                   {match.timeVisitante.nome}
                 </p>
