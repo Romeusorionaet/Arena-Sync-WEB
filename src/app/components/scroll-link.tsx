@@ -20,7 +20,7 @@ export function ScrollLink({ target, title, offset, onClick }: Props) {
     >
       <button
         onClick={onClick}
-        className="bg-transparent p-1 focus:p-1"
+        className="bg-transparent p-1 focus:p-1 max-md:text-xs"
         title={title}
       >
         {title}

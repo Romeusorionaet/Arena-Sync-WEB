@@ -38,7 +38,11 @@ export function SearchFormMatch() {
   }
 
   return (
-    <form onSubmit={handleSearch} className="space-y-10 text-center">
+    <form
+      id="searchArea"
+      onSubmit={handleSearch}
+      className="space-y-10 text-center"
+    >
       <div className="mb-10 flex justify-center gap-10">
         <label className="flex flex-col items-center gap-2">
           <p>Temporada</p>

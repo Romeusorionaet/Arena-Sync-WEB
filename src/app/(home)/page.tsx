@@ -50,18 +50,15 @@ export default function Home() {
           </div>
         </section>
         <section
-          id="schedulingMatches"
-          className="flex h-[60rem] items-center justify-center gap-6 bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat p-4 max-xl:flex-col max-xl:gap-8 md:p-20"
+          id="classificationTable"
+          className="flex h-[60rem] items-center justify-center gap-6 bg-[url('/img/wallpaper-tres-atletas.jpg')] bg-cover bg-center bg-no-repeat max-xl:flex-col max-xl:gap-8 md:p-20 md:p-4"
         >
           <WidgetMatchTable />
         </section>
 
         <div className="h-8 w-full bg-gradient-to-b from-green-800 to-green-700" />
 
-        <section
-          id="searchArea"
-          className="bg-gradient-to-b from-green-700 to-transparent p-1 pb-10 md:p-4"
-        >
+        <section className="bg-gradient-to-b from-green-700 to-transparent p-1 pb-10 md:p-4">
           <div className="my-10 flex items-center gap-6 max-lg:flex-wrap max-md:flex-col">
             <p className="text-center text-2xl font-bold lg:text-4xl">
               Quando o talento encontra a estratégia, cada dado faz diferença.
