@@ -39,16 +39,13 @@ export default function Home() {
           </div>
 
           <div className="relative flex h-[40rem] w-full items-center justify-center bg-[url('/img/futebol-arena.png')] bg-cover bg-center bg-no-repeat md:h-full md:w-2/3 md:pt-4">
-            <div className="relative flex h-full w-full overflow-hidden md:h-full md:w-2/3">
-              <p className="absolute right-5 top-5 text-2xl font-extrabold text-yellow-300 md:right-10 md:top-10">
-                Arena{' '}
-                <span className="rounded-md bg-white p-0.5 text-green-500">
-                  Sync
-                </span>
-              </p>
-
-              <WidgetRound />
-            </div>
+            <p className="absolute right-5 top-5 text-2xl font-extrabold text-yellow-300 md:right-10 md:top-10">
+              Arena{' '}
+              <span className="rounded-md bg-white p-0.5 text-green-500">
+                Sync
+              </span>
+            </p>
+            <WidgetRound />
           </div>
         </section>
         <section

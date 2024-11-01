@@ -7,6 +7,7 @@ export function WidgetRound() {
       title="API Futebol"
       width="90%"
       height="80%"
+      className="max-md:mt-6"
     ></iframe>
   )
 }
