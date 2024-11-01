@@ -105,7 +105,7 @@ export function SearchFormMatch() {
 
       <button
         type="submit"
-        className="rounded-md border p-2 text-xs duration-300 hover:border-transparent hover:bg-green-600 max-md:-mr-4 md:w-28 md:p-4 md:text-base"
+        className="rounded-md border p-2 text-xs duration-300 hover:border-transparent hover:bg-green-600 md:w-28 md:p-4 md:text-base"
       >
         buscar
       </button>
