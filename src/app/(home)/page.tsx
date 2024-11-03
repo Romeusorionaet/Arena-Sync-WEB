@@ -1,11 +1,11 @@
-import Image from 'next/image'
-import '@/assets/styles/table-statistics.css'
+import { WidgetMatchRound } from '../components/widgets/widget-match-round'
+import { WidgetMatchTable } from '../components/widgets/widget-match-table'
 import { SearchFormMatch } from '../components/search-form-match'
 import { UpcomingMatches } from '../components/upcoming-matches'
-import { Header } from '../components/header'
 import { ChatBot } from '../components/chat-bot'
-import { WidgetMatchTable } from '../components/widgets/widget-match-table'
-import { WidgetMatchRound } from '../components/widgets/widget-match-round'
+import '@/assets/styles/table-statistics.css'
+import { Header } from '../components/header'
+import Image from 'next/image'
 
 export default function Home() {
   return (

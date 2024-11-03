@@ -48,9 +48,9 @@ export function ReplacementContent({ replacement }: Props) {
                 <div className="flex gap-2 font-light">
                   <div className="flex items-center">
                     <Shirt className="h-3 w-3 md:h-4 md:w-4" />
-                    <p>{sub.saiuAtleta.titular[0].camisa}</p>
+                    <p>{sub.saiuAtleta.titular[0]?.camisa}</p>
                   </div>
-                  <p>{sub.saiuAtleta.titular[0].posicao}</p>
+                  <p>{sub.saiuAtleta.titular[0]?.posicao}</p>
                 </div>
               </div>
 
@@ -63,9 +63,9 @@ export function ReplacementContent({ replacement }: Props) {
                 <div className="flex gap-2 font-light">
                   <div className="flex items-center">
                     <Shirt className="h-3 w-3 md:h-4 md:w-4" />
-                    <p>{sub.entrouAtleta.reserva[0].camisa}</p>
+                    <p>{sub.entrouAtleta.reserva[0]?.camisa}</p>
                   </div>
-                  <p>{sub.entrouAtleta.reserva[0].posicao}</p>
+                  <p>{sub.entrouAtleta.reserva[0]?.posicao}</p>
                 </div>
               </div>
             </div>

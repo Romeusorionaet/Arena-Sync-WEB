@@ -1,16 +1,14 @@
-import { Suspense } from 'react'
 import { getSearchMatch } from '@/actions/get-search-match'
-import { MatchProps } from '@/@types/arena-sync'
-import Image from 'next/image'
-import { format } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
-import Link from 'next/link'
 import { SearchFormMatch } from '@/app/components/search-form-match'
 import { Pagination } from '@/app/components/pagination'
 import { ChartColumnStacked } from 'lucide-react'
+import { MatchProps } from '@/@types/arena-sync'
 import { toZonedTime } from 'date-fns-tz'
-
-const timeZone = 'America/Sao_Paulo'
+import { ptBR } from 'date-fns/locale'
+import { format } from 'date-fns'
+import { Suspense } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 interface SearchProps {
   searchParams: {
@@ -32,6 +30,8 @@ export default async function Search({ searchParams }: SearchProps) {
     team1,
     team2,
   })
+
+  const timeZone = 'America/Sao_Paulo'
 
   const matches: MatchProps[] = JSON.parse(props.matches ?? '[]')
 

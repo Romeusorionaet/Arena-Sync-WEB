@@ -224,7 +224,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                     key={gol.minuto}
                     className="w-72 space-y-4 rounded-lg bg-[url('/img/footbal-fire.png')] bg-cover p-4"
                   >
-                    <header className="flex justify-between gap-6 rounded-lg bg-red-950 p-0.5 p-1">
+                    <header className="flex justify-between gap-6 rounded-lg bg-red-950 p-1">
                       <p>min: {gol.minuto}</p>
                       <p>{gol.periodo}</p>
                     </header>
@@ -270,7 +270,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
                     key={gol.minuto}
                     className="w-72 space-y-4 rounded-lg bg-[url('/img/footbal-fire.png')] bg-cover p-4"
                   >
-                    <header className="flex justify-between gap-6 rounded-lg bg-red-950 p-0.5 p-1">
+                    <header className="flex justify-between gap-6 rounded-lg bg-red-950 p-1">
                       <p>min: {gol.minuto}</p>
                       <p>{gol.periodo}</p>
                     </header>
