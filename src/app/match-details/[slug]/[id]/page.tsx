@@ -66,6 +66,8 @@ export default async function MatchDetails({ params }: ParamsProps) {
   const { props } = await getMatchDetails(id)
 
   const match: MatchDetailsProps = JSON.parse(props.match ?? '')
+  const golsMandante = match.timeMandante.estatisticaDaPartida[0].gol
+  const golsVisitante = match.timeVisitante.estatisticaDaPartida[0].gol
 
   return (
     <div className="bg-green-800/80">
@@ -209,6 +211,100 @@ export default async function MatchDetails({ params }: ParamsProps) {
           <div className="h-8 w-full bg-gradient-to-b from-green-50/90 to-green-800/80" />
         </section>
 
+        <section className="mt-10 flex justify-center gap-4 p-2 max-md:flex-col max-md:items-center md:p-10">
+          <div className="flex h-full w-1/2 flex-col items-center gap-4">
+            <div className="flex w-full items-center justify-between md:justify-evenly">
+              <h2 className="font-bold">GOLS</h2>{' '}
+              <p>{match.timeMandante.nome}</p>
+            </div>
+            <div className="flex-wrap items-center justify-center gap-2">
+              {golsMandante.map((gol) => {
+                return (
+                  <article
+                    key={gol.minuto}
+                    className="w-72 space-y-4 rounded-lg bg-[url('/img/footbal-fire.png')] bg-cover p-4"
+                  >
+                    <header className="flex justify-between gap-6 rounded-lg bg-red-950 p-0.5 p-1">
+                      <p>min: {gol.minuto}</p>
+                      <p>{gol.periodo}</p>
+                    </header>
+
+                    <div className="rounded-lg bg-red-950 p-0.5">
+                      {gol.atleta.titular.length > 0 && (
+                        <div className="text-center">
+                          <div className="flex items-center justify-center">
+                            <Shirt className="h-3 w-3 md:h-4 md:w-4" />
+                            <p>{gol.atleta.titular[0]?.camisa}</p>
+                          </div>
+                          <p>{gol.atleta.titular[0]?.posicao}</p>
+                          {gol.atleta.nomePopular}
+                        </div>
+                      )}
+
+                      {gol.atleta.reserva.length > 0 && (
+                        <div>
+                          <div className="flex items-center">
+                            <Shirt className="h-3 w-3 md:h-4 md:w-4" />
+                            <p>{gol.atleta.reserva[0]?.camisa}</p>
+                          </div>
+                          <p>{gol.atleta.reserva[0]?.posicao}</p>
+                          <p>{gol.atleta.nomePopular}</p>
+                        </div>
+                      )}
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
+          </div>
+
+          <div className="flex h-full w-1/2 flex-col items-center gap-4">
+            <div className="flex w-full items-center justify-between md:justify-evenly">
+              <h2 className="font-bold">GOLS</h2>{' '}
+              <p>{match.timeVisitante.nome}</p>
+            </div>
+            <div className="flex-wrap items-center justify-center gap-2">
+              {golsVisitante.map((gol) => {
+                return (
+                  <article
+                    key={gol.minuto}
+                    className="w-72 space-y-4 rounded-lg bg-[url('/img/footbal-fire.png')] bg-cover p-4"
+                  >
+                    <header className="flex justify-between gap-6 rounded-lg bg-red-950 p-0.5 p-1">
+                      <p>min: {gol.minuto}</p>
+                      <p>{gol.periodo}</p>
+                    </header>
+
+                    <div className="rounded-lg bg-red-950 p-0.5">
+                      {gol.atleta.titular.length > 0 && (
+                        <div className="text-center">
+                          <div className="flex items-center justify-center">
+                            <Shirt className="h-3 w-3 md:h-4 md:w-4" />
+                            <p>{gol.atleta.titular[0]?.camisa}</p>
+                          </div>
+                          <p>{gol.atleta.titular[0]?.posicao}</p>
+                          {gol.atleta.nomePopular}
+                        </div>
+                      )}
+
+                      {gol.atleta.reserva.length > 0 && (
+                        <div>
+                          <div className="flex items-center">
+                            <Shirt className="h-3 w-3 md:h-4 md:w-4" />
+                            <p>{gol.atleta.reserva[0]?.camisa}</p>
+                          </div>
+                          <p>{gol.atleta.reserva[0]?.posicao}</p>
+                          <p>{gol.atleta.nomePopular}</p>
+                        </div>
+                      )}
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
         <section className="mt-10 flex flex-wrap justify-center gap-4 bg-white/90 text-black">
           <div className="h-8 w-full bg-gradient-to-b from-green-800/80 to-green-50/90" />
 
@@ -224,7 +320,7 @@ export default async function MatchDetails({ params }: ParamsProps) {
           <div className="h-8 w-full bg-gradient-to-b from-green-50/90 to-green-800/80" />
         </section>
 
-        <section className="mt-10 flex flex-wrap justify-center gap-4 p-2 text-black md:p-10">
+        <section className="mt-10 flex flex-wrap justify-center gap-4 p-2 md:p-10">
           <article className="mx-auto flex w-full max-w-[30rem] flex-col rounded-lg p-1 text-black">
             <header className="flex items-center justify-between rounded-t-lg bg-emerald-300 p-1 uppercase">
               <div>
