@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Arena Sync API
 
-## Getting Started
+Este projeto foi desenvolvido para fins de portfólio.
 
-First, run the development server:
+Esta é uma aplicação que salva e atualiza dados de partidas do campeonato brasileiro automaticamente.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> Importante informar que a API externa que fornece os dados do campeonato fornece uma amostra gratuita do seu serviço, tem limitação de tempo de uso.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Gravei uma vídeo explicando o projeto de forma resumida, para visualizar o funcionamento do projeto Arena Sync siga o link abaixo.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- <a href="https://drive.google.com/file/d/131LsOQ6uG8NEr8uI--d_fz55QrsBmfCk/view?usp=sharing" target="_blank">Projeto Arena Sync</a>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- <a href="https://www.tldraw.com/ro/t-RKr7J7GMn36zxOovTrg?d=v-4132.-3267.10342.5204.page" target="_blank">Desenho do projeto</a>
 
-## Learn More
+## Meus contatos
 
-To learn more about Next.js, take a look at the following resources:
+- [LinkedIn](https://www.linkedin.com/in/romeu-soares-87749a231/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- romeuindexjs@gmail.com
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- WhatsApp: 84 981127596
 
-## Deploy on Vercel
+<br>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<h3> Licença </h3>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<p>
+<img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+</p>
