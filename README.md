@@ -12,6 +12,8 @@ Gravei uma vídeo explicando o projeto de forma resumida, para visualizar o func
 
 - <a href="https://www.tldraw.com/ro/t-RKr7J7GMn36zxOovTrg?d=v-4132.-3267.10342.5204.page" target="_blank">Desenho do projeto</a>
 
+- <a href="https://github.com/Romeusorionaet/Arena-Sync-API" target="_blank">Back-End</a>
+
 ## Meus contatos
 
 - [LinkedIn](https://www.linkedin.com/in/romeu-soares-87749a231/)
